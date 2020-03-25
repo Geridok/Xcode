@@ -2,36 +2,26 @@ import UIKit
 
 /* Exersice 2 */
 
-open class GameObject {
-    /* определяем нужные нам методы и свойства*/
+class GameObject { //тут он сам internal становится
     func who() {
         print("Just object")
     }
 }
 
-/* Теперь наследуемся от gameObject и делаем любые игровые объекты, а в инвенторе храним gameObject*/
 final class Sword: GameObject {
     override func who(){
         print("Sword")
     }
 }
-open class Inventory{
+class Inventory{ //тут тоже
     private var elements: [GameObject] = []
     func addObject(object:GameObject) {
         elements.append(object)
     }
-    func showInventory() {
-        elements.forEach({$0.who()})
-    }
 }
-var obj1 = Sword()
-var inv = Inventory()
-inv.addObject(object: obj1) //и вот тут я был приятно удивлен, ведь получилось. Об этом не рассказывалось в лекциях, однако я попробовал как на плюсах. Насколько я понимаю тут происхдит upcast автоматически, но я не понял, по идеи он должен быть optional, но моя функция принимает "обычные" объекты.
-inv.showInventory()
-/* И вот если сделать задание на основе наших знаний, нам рассказали только про полиморфизм на примере protocol, и просто как-то странно звучит протокол "инвентаризуемый". Или я что-то не так понял? */
 /*______________________________________________________________________________________________*/
 
-public protocol DrawableOnMap {
+ protocol DrawableOnMap {
     func drawOnMap()
 }
 
@@ -52,12 +42,12 @@ final class Map {
 }
 
 /*______________________________________________________________________________________________*/
-open class Car {
+class Car {
     var name: String = ""
     var picture: [Character] = []
 }
 
-open class Equipment {
+class Equipment {
     var name: String
     var price: UInt
     var color: (Character, Character, Character)
@@ -74,23 +64,43 @@ final class car1: Car {
     var equipment: Equipment? = nil
     
 }
-/* Ну и так далее
-    Я так понял расширение (как правила хорошего тона) используются для добавления протоколов
-    Так же расширение можно использовать что бы дополнять уже стандартные классы или когда нет нужды наследоваться но мы хоти дополнить функционал (например при использовании чужой библиотеки) */
-/* Exersice 3
- let v1: A = D() тут все хорошо т.к. D наследуется от C, а C от А
+/* В общем-то для выполнения вашего задания связанно с модификаторами, наоборот нужно было все стереть, ведь они автоматом internal, очень удобно)
+    На самом деле не понятно пока что такое модуль, чем он от source файла отличается и т.д. Видимо позже об этом расскажут. Может кстати тут и стоит file-private все сделать, пока для меня это не совсем прозрачно....*/
 
- v1.a() вызовется метод который переопределен в C
+/* Bonus
+    as for upcasting
+    is for type checking
+    as! for force downcasting
+    as? for optional downcasting
+    ну поехали
+*/
+class Animal{
+    func whoIs(){
+        print("Just animal!")
+    }
+}
 
- let v2: B = C() вообще C и B не имеют никакой связи, тут будет ошибка компиляции.
+class Bird:Animal{
+    override func whoIs() {
+        print("Bird!")
+    }
+}
 
- v2.c() тут соответственно тоже
+var obj1 = Animal()
 
- let v3: C = D() класс D можно сделать upcast к C
+var obj2:Bird = Bird()
 
- v3.d() однако С не реализует такого метода, а при upcast нам становятся недоступны методы derived (ну если они не override ( в с++ по крайне мере так) ))
 
- let v4: D = D() no comments
- 
- v4.a() тут все отлично, прям как в v1.a()
- */
+if obj2 is Animal {
+    print("Bird is also animal")
+}
+
+let obj3:Animal = obj2 as Animal
+
+let obj4:Bird = obj1 as! Bird // ну тут не получилось downcast)
+
+let obj5:Bird? = obj1 as? Bird
+/*______________________________________________________________________________________________________________________*/
+var str:String = "Some string"
+var NSstring:NSString? = str as? NSString
+/* Ну и так далее*/
