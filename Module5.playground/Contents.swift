@@ -97,10 +97,12 @@ if obj2 is Animal {
 
 let obj3:Animal = obj2 as Animal
 
-let obj4:Bird = obj1 as! Bird // ну тут не получилось downcast)
+//et obj4:Bird = obj1 as! Bird // ну тут не получилось downcast)
 
 let obj5:Bird? = obj1 as? Bird
 /*______________________________________________________________________________________________________________________*/
 var str:String = "Some string"
 var NSstring:NSString? = str as? NSString
 /* Ну и так далее*/
+
+var i = pow(2, 3)
