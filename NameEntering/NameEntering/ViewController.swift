@@ -12,18 +12,15 @@ import UIKit
 class ViewController: UIViewController {
 
     private var nameConcatenation:String = ""
-    
-    /* Тут наверное стоит пояснить что я делал...
-        Я пытался убрать все пробелы в введенном тексте(Ибо имя не может иметь пробелы), сначала была идея через цикл for с параметром enumerate пройтись по всем элементам и сравнением == " " и получить индекс пробела и функцие remove убрать его, но как оказалось с Int функция remove не умеет работать, она работает с String.Index и как сказал мне сам компилятор, такой cast:         let index = ind as? String.Index, всегда провалится, не совсем понятно почему так. Я так понимаю Strind.index это типо смещение в памяти указателя, т.к. я посмотрел и там доступ за O(1), хотя вроде когда мы пытаемся доступиться в массиве, он нам позволяет это сделать с Int и тоже делает за O(1). Какая-то тут тонкость, помогите разобраться. У меня получилось вот такое решение, скажите как вам, может что-то лучше можно придумать. Тут сложность O(n),(впринцепи как и была бы у цикла for) но как мы знаем есть разные константы поред этим О, так вот мне кажется что здесь она побольше.*/
+
     private func deleteAllSpace(_ string:inout String) {
-        while(true){
-            guard let index = string.firstIndex(of: " ") else {
-                break
-            }
-            string.remove(at: index)
-        }
-//        let ind:Int = 2
-//        let index = ind as? String.Index
+        
+//        let space:Set<Character> = [" "]
+//        string.removeAll(where: {space.contains($0)}) еще вариантик
+        
+        string.removeAll(where: {$0 == " "}) // более симпотичный
+        
+        //По поводу вот этих предикатов, аля: where: {$0 == " "}, я так понимаю это что-то на подобии lambda expression. Можете дать ссылрочку где о них можно почитать.
     }
     
     
@@ -31,21 +28,17 @@ class ViewController: UIViewController {
      
     @IBOutlet weak var nameTextField: UITextField!
     
-    @IBAction func viewName(_ sender: Any) {
-        if !(nameTextField.text!.isEmpty) {
-            var str = nameTextField.text!
-            deleteAllSpace(&str)
+    @IBAction func showNewName(_ sender: Any) {
+        guard var str = nameTextField.text else{
+            return
+        }
+        if !(str.isEmpty) {
+            deleteAllSpace(&str) // стоит ли создавать отдельную функцию для этого (в которой по сути одна строчка)
             nameConcatenation += str + " "
             nameLabel.text = nameConcatenation
         }
     
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
- 
 }
 
 /*  А это что мне удалось найти в интернете по поводу доступа String[i], где i это Int, но в моей задаче это не помогло бы...*/
@@ -61,4 +54,10 @@ extension String {
         return self[startIndex..<stopIndex]
     }
 
+}
+
+func test(){
+    let str = "Some string"
+    print(str.count)
+    print(str[12]) // ну собственно нет проверки на выход за приеделы, в этом он не безопасен, тоже самое и с range
 }
