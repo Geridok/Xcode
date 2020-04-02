@@ -28,7 +28,7 @@ class ViewController: UIViewController {
      
     @IBOutlet weak var nameTextField: UITextField!
     
-    @IBAction func showNewName(_ sender: Any) {
+    @IBAction func showNewName() {
         guard var str = nameTextField.text else{
             return
         }
