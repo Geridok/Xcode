@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-protocol ListDelegate {
+protocol ListDelegate: AnyObject {
     func sendChoice(_ choice:String)
     func changeBackGroundColor(_ backGroundColor:UIColor)
 }
@@ -18,35 +18,30 @@ class List: UIViewController {
     
     var textLabel:String = "Geen is selected"
     var delegate:ListDelegate?
+    deinit {
+        delegate = nil
+    }
     
     @IBOutlet weak var choiceLabel: UILabel!
-    @IBOutlet weak var green: UIButton!
-    @IBOutlet weak var blue: UIButton!
-    @IBOutlet weak var red: UIButton!
+    @IBOutlet weak var greenButton: UIButton!
+    @IBOutlet weak var blueButton: UIButton!
+    @IBOutlet weak var redButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         choiceLabel.text = textLabel
+        redButton.tag = 0
+        greenButton.tag = 1
+        blueButton.tag = 2
     }
     
     @IBAction func chooseColor(_ sender:UIButton){
         navigationController?.popViewController(animated: true)
-        switch sender {
-        case green:
-            delegate?.sendChoice("Green is selected")
-            delegate?.changeBackGroundColor(UIColor.green)
-            
-        case blue:
-            delegate?.sendChoice("Blue is selected")
-            delegate?.changeBackGroundColor(UIColor.blue)
-        case red:
-            delegate?.sendChoice("Red is selected")
-            delegate?.changeBackGroundColor(UIColor.red)
-        default:
-            return
-        }
+        let color = CollorPallete(rawValue: sender.tag)
+        delegate?.changeBackGroundColor(color?.rgb ?? UIColor.yellow)
+        delegate?.sendChoice(color?.selectedDescription ?? "")
     }
 
     

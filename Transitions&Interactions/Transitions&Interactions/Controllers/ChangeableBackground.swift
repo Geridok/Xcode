@@ -18,10 +18,6 @@ class ChangeableBackgroundSecond: UIViewController {
             choceLabel.text = "Green is selected"
     }
 
-    @IBAction func showList() {
-        performSegue(withIdentifier: "ShowList", sender: nil)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? List, segue.identifier == "ShowList"{
             vc.textLabel = choceLabel.text!

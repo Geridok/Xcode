@@ -18,9 +18,15 @@ class Main: UIViewController {
     
     private var IntegratedVC: Integrated?
     
+    deinit {
+        IntegratedVC = nil
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        redButton.tag = 0
+        greenButton.tag = 1
+        blueButton.tag = 2
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -30,17 +36,8 @@ class Main: UIViewController {
         }
     }
     @IBAction func changeIntegratedBackgroundColor(_ sender:UIButton){
-        
-        switch sender {
-        case greenButton:
-            IntegratedVC?.self.view.backgroundColor = UIColor.green
-        case blueButton:
-            IntegratedVC?.self.view.backgroundColor = UIColor.blue
-        case redButton:
-            IntegratedVC?.self.view.backgroundColor = UIColor.red
-        default:
-            return
-        }
+        let color = CollorPallete(rawValue: sender.tag)
+        IntegratedVC?.self.view.backgroundColor = color?.rgb
     }
 
 }

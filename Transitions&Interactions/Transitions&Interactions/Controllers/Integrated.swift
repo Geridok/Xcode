@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol IntegratedDelegat {
+protocol IntegratedDelegat: AnyObject {
     func changeBackGroundColor(_ backGroundColor:UIColor)
 }
 
@@ -16,26 +16,25 @@ class Integrated: UIViewController {
 
     var delegate:IntegratedDelegat?
     
+    deinit {
+        delegate = nil
+    }
+    
     @IBOutlet weak var greenButton: UIButton!
     @IBOutlet weak var blueButton: UIButton!
     @IBOutlet weak var redButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        redButton.tag = 0
+        greenButton.tag = 1
+        blueButton.tag = 2
     }
     
     @IBAction func changeBackGroundColorMain(_ sender:UIButton){
-        switch sender {
-        case greenButton:
-            delegate?.changeBackGroundColor(UIColor.green)
-        case blueButton:
-            delegate?.changeBackGroundColor(UIColor.blue)
-        case redButton:
-            delegate?.changeBackGroundColor(UIColor.red)
-        default:
-            return
-        }
+        let color = CollorPallete(rawValue: sender.tag)
+        delegate?.changeBackGroundColor(color?.rgb ?? UIColor.yellow)
     }
     
 }
+
