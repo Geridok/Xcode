@@ -26,9 +26,9 @@ class Integrated: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        redButton.tag = 0
-        greenButton.tag = 1
-        blueButton.tag = 2
+        redButton.tag = CollorPallete.red.rawValue
+        greenButton.tag = CollorPallete.green.rawValue
+        blueButton.tag = CollorPallete.blue.rawValue
     }
     
     @IBAction func changeBackGroundColorMain(_ sender:UIButton){

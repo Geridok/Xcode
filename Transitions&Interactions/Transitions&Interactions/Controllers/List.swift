@@ -32,9 +32,9 @@ class List: UIViewController {
         super.viewDidLoad()
 
         choiceLabel.text = textLabel
-        redButton.tag = 0
-        greenButton.tag = 1
-        blueButton.tag = 2
+        redButton.tag = CollorPallete.red.rawValue
+        greenButton.tag = CollorPallete.green.rawValue
+        blueButton.tag = CollorPallete.blue.rawValue
     }
     
     @IBAction func chooseColor(_ sender:UIButton){
