@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9RR-oj-pYM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9RR-oj-pYM">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--IntegratedTab-->
+        <!--Main-->
         <scene sceneID="3rJ-am-NdA">
             <objects>
                 <viewController storyboardIdentifier="MainThirdTab" id="9RR-oj-pYM" customClass="Main" customModule="Transitions_Interactions" customModuleProvider="target" sceneMemberID="viewController">
@@ -62,7 +62,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="1cY-HV-p5K"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="IntegratedTab" image="square.split.2x2.fill" catalog="system" id="nru-Z0-4vw"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="blueButton" destination="8og-q1-5D3" id="dT6-Rs-iQd"/>
@@ -135,6 +134,5 @@
     </scenes>
     <resources>
         <image name="circle.fill" catalog="system" width="128" height="121"/>
-        <image name="square.split.2x2.fill" catalog="system" width="128" height="114"/>
     </resources>
 </document>
