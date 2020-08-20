@@ -17,10 +17,11 @@ class RandomImageViewController: UIViewController {
         super.viewDidLoad()
         let width:UInt = 200
         let height:UInt = 200
-        UIImageViewSet.append(createImageView(width: width, height: height, offsetX: 0, offSetY: 200))
-        UIImageViewSet.append(createImageView(width: width, height: height, offsetX: 220, offSetY: 200))
-        UIImageViewSet.append(createImageView(width: width, height: height, offsetX: 0, offSetY: 400))
-        UIImageViewSet.append(createImageView(width: width, height: height, offsetX: 220, offSetY: 400))
+        for i in 0...1 {
+            for j in 1...2 {
+                UIImageViewSet.append(createImageView(width: width, height: height, offsetX: UInt(220*i), offSetY: UInt(j*200)))
+            }
+        }
         for i in 0...3 {
             self.view.addSubview(UIImageViewSet[i])
         }

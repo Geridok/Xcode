@@ -12,27 +12,46 @@ class SegmentViewController: UIViewController {
 
     @IBOutlet weak var viewSegmentControl: UISegmentedControl!
     
-    var ViewArray = [UIView(),UIView(),UIView()]
+    var greenView = UIView(frame: CGRect(x: 87, y: 300, width: 250, height: 250))
+    var blueView = UIView(frame: CGRect(x: 87, y: 300, width: 250, height: 250))
+    var purpleView = UIView(frame: CGRect(x: 87, y: 300, width: 250, height: 250))
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ViewArray[0].backgroundColor = .green
-        ViewArray[1].backgroundColor = .blue
-        ViewArray[2].backgroundColor = .purple
-        for item in ViewArray {
-            item.frame = CGRect(x: 87, y: 300, width: 250, height: 250)
-        }
-        self.view.addSubview(ViewArray[0])
-        // Do any additional setup after loading the view.
+        greenView.backgroundColor = .green
+        blueView.backgroundColor = .blue
+        purpleView.backgroundColor = .purple
+        self.view.addSubview(purpleView)
+        purpleView.isHidden = true
+        self.view.addSubview(blueView)
+        blueView.isHidden = true
+        self.view.addSubview(greenView)
     }
     
     @IBAction func ViewChanged(_ sender: UISegmentedControl) {
         guard sender == viewSegmentControl else {
             return
         }
-        let segmentIndex = sender.selectedSegmentIndex
-        self.view.addSubview(ViewArray[segmentIndex])
+        whichToShow(index: sender.selectedSegmentIndex)
     }
-    
+   
+    private func whichToShow(index: Int){
+        switch index {
+        case 0:
+            blueView.isHidden = true
+            purpleView.isHidden = true
+            greenView.isHidden = false
+        case 1:
+            blueView.isHidden = false
+            purpleView.isHidden = true
+            greenView.isHidden = true
+         case 2:
+            blueView.isHidden = true
+            purpleView.isHidden = false
+            greenView.isHidden = true
+        default:
+            return
+        }
+    }
 
 }

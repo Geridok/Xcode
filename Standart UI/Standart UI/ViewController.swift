@@ -11,33 +11,37 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var setImageView: UIImageView!
+    @IBOutlet weak var generateUIButton: UIButton!
     
 
     let imageSetNames = ["first","second","third","forth",
                          "fifth","six","eight","nine"]
-    
+    var UIImageArray:[UIImage] = []
     var currentImageIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        generateUIButton.layer.cornerRadius = 55
+        for item in imageSetNames {
+            UIImageArray.append(UIImage(imageLiteralResourceName: item))
+        }
     }
 
-    @IBAction func nextImage(_ sender: UIButton) {
+    @IBAction func nextImage() {
         currentImageIndex += 1
         if(currentImageIndex >= 8){
             currentImageIndex = 0
         }
-        setImageView.image = UIImage(imageLiteralResourceName: imageSetNames[currentImageIndex])
+        setImageView.image = UIImageArray[currentImageIndex]
     }
     
     
-    @IBAction func backImage(_ sender: UIButton) {
+    @IBAction func backImage() {
         currentImageIndex -= 1
         if(currentImageIndex <= 0){
             currentImageIndex = 7
         }
-        setImageView.image = UIImage(imageLiteralResourceName: imageSetNames[currentImageIndex])
+        setImageView.image = UIImageArray[currentImageIndex]
     }
 }
 

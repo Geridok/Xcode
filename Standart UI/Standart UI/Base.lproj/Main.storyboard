@@ -29,7 +29,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="nextImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lxf-mP-IKb"/>
+                                    <action selector="nextImage" destination="BYZ-38-t0r" eventType="touchUpInside" id="xiC-LS-fZW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZXJ-p3-aLu">
@@ -39,16 +39,7 @@
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="backImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7P4-hY-0FI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NA9-rG-wTW">
-                                <rect key="frame" x="153" y="564" width="109" height="109"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
-                                <state key="normal" title="werwer" image="generate"/>
-                                <connections>
-                                    <segue destination="c2R-Vp-GIM" kind="show" id="BEt-dm-klx"/>
+                                    <action selector="backImage" destination="BYZ-38-t0r" eventType="touchUpInside" id="TTo-kf-B8w"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4UE-KN-qfr">
@@ -57,6 +48,15 @@
                                 <state key="normal" title="Button" image="SegmentControl"/>
                                 <connections>
                                     <segue destination="T8U-Kt-zp7" kind="show" id="tIr-kz-Ucn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NA9-rG-wTW">
+                                <rect key="frame" x="153" y="563" width="109" height="109"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
+                                <state key="normal" title="werwer" image="generate"/>
+                                <connections>
+                                    <segue destination="c2R-Vp-GIM" kind="show" id="BEt-dm-klx"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -70,6 +70,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Set" id="ypS-b9-ddd"/>
                     <connections>
+                        <outlet property="generateUIButton" destination="NA9-rG-wTW" id="e7f-br-ERJ"/>
                         <outlet property="setImageView" destination="Hka-xb-GoN" id="tUD-YL-xNo"/>
                     </connections>
                 </viewController>
