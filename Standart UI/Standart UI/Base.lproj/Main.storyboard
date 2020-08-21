@@ -15,12 +15,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="first" translatesAutoresizingMaskIntoConstraints="NO" id="Hka-xb-GoN">
-                                <rect key="frame" x="20" y="126" width="374" height="603"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="603" id="Is8-ST-uMW"/>
-                                    <constraint firstAttribute="width" constant="374" id="y6a-2q-NO4"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="first" translatesAutoresizingMaskIntoConstraints="NO" id="Hka-xb-GoN">
+                                <rect key="frame" x="20" y="126" width="374" height="1600"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RrK-fR-q8D">
                                 <rect key="frame" x="362" y="798" width="32" height="30"/>
@@ -61,11 +58,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Hka-xb-GoN" secondAttribute="trailing" constant="20" id="Mq9-zP-l8u"/>
-                            <constraint firstItem="Hka-xb-GoN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Mqv-MZ-1oh"/>
-                            <constraint firstItem="Hka-xb-GoN" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="38" id="hha-uz-nlC"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Set" id="ypS-b9-ddd"/>

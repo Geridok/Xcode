@@ -29,7 +29,7 @@ class RandomImageViewController: UIViewController {
     }
     
     private func createImageView(width: UInt, height: UInt, offsetX: UInt, offSetY: UInt)->UIImageView{
-        var imageView = UIImageView()
+        let imageView = UIImageView()
         imageView.frame = CGRect(x: CGFloat(offsetX), y: CGFloat(offSetY), width: CGFloat(width), height: CGFloat(height))
         imageView.image = UIImage(imageLiteralResourceName:imageSetNames[Int.random(in: 0..<8)])
         imageView.contentMode = .scaleAspectFit

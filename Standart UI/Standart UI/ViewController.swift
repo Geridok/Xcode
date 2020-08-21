@@ -21,7 +21,6 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        generateUIButton.layer.cornerRadius = 55
         for item in imageSetNames {
             UIImageArray.append(UIImage(imageLiteralResourceName: item))
         }

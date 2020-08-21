@@ -12,9 +12,9 @@ class SegmentViewController: UIViewController {
 
     @IBOutlet weak var viewSegmentControl: UISegmentedControl!
     
-    var greenView = UIView(frame: CGRect(x: 87, y: 300, width: 250, height: 250))
-    var blueView = UIView(frame: CGRect(x: 87, y: 300, width: 250, height: 250))
-    var purpleView = UIView(frame: CGRect(x: 87, y: 300, width: 250, height: 250))
+    let greenView = UIView(frame: CGRect(x: 87, y: 300, width: 250, height: 250))
+    let blueView = UIView(frame: CGRect(x: 87, y: 300, width: 250, height: 250))
+    let purpleView = UIView(frame: CGRect(x: 87, y: 300, width: 250, height: 250))
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,25 +32,12 @@ class SegmentViewController: UIViewController {
         guard sender == viewSegmentControl else {
             return
         }
-        whichToShow(index: sender.selectedSegmentIndex)
+        whichToShow(selectedIndex: sender.selectedSegmentIndex)
     }
    
-    private func whichToShow(index: Int){
-        switch index {
-        case 0:
-            blueView.isHidden = true
-            purpleView.isHidden = true
-            greenView.isHidden = false
-        case 1:
-            blueView.isHidden = false
-            purpleView.isHidden = true
-            greenView.isHidden = true
-         case 2:
-            blueView.isHidden = true
-            purpleView.isHidden = false
-            greenView.isHidden = true
-        default:
-            return
+    private func whichToShow(selectedIndex: Int){
+        for (index, view) in [blueView, purpleView, greenView].enumerated() {
+            view.isHidden = index != selectedIndex
         }
     }
 
