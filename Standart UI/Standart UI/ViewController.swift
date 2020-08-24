@@ -42,5 +42,5 @@ class ViewController: UIViewController {
         }
         setImageView.image = UIImageArray[currentImageIndex]
     }
-}
 
+}
