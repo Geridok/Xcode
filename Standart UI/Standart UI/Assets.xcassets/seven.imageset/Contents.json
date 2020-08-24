@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "2109546307-the-red-landscape-B99x-2560x1600-MM-100.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
