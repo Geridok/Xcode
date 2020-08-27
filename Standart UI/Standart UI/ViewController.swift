@@ -16,92 +16,87 @@ class ViewController: UIViewController {
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var imageStepper: UIStepper!
+    @IBOutlet weak var imageProgressiveView: UIProgressView!
     
     
     let imageSetNames = ["first","second","third","forth",
                          "fifth","six","eight","nine"]
-    var imageArray:[UIImage]? = []
-    let animationDuration:Float80 = 8.0
+    var imageArray:[UIImage]  = []
+    let timeForOneImage:Float80 = 0.5
     var startOfAnimation: DispatchTime?
-    var currentImageIndex = 0
-    var notFirstTime = false
+    var animating = false
+    var timer: Timer = Timer()
+    var progress:Progress?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         for item in imageSetNames {
-            imageArray?.append(UIImage(imageLiteralResourceName: item))
+            imageArray.append(UIImage(imageLiteralResourceName: item))
         }
-        self.setImageView.animationImages = imageArray
-        self.setImageView.animationDuration = TimeInterval(animationDuration)
         imageUISlider.minimumValue = 0
-        imageUISlider.maximumValue = Float(imageArray?.count ?? 0) - 1
-        imageStepper.maximumValue = Double((imageArray?.count ?? 0) - 1)
+        imageUISlider.maximumValue = Float(imageArray.count) - 1
+        imageStepper.maximumValue = Double((imageArray.count) - 1)
         stopButton.isHidden = true
+        progress = Progress(totalUnitCount: Int64(imageArray.count) - 1)
+
     }
 
     @IBAction func startImageAnimation() {
-        self.setImageView.startAnimating()
-        self.startOfAnimation = DispatchTime.now()
+        timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(timeForOneImage), repeats: true){ timer in
+            self.progress!.completedUnitCount += 1
+            if(!(self.progress!.completedUnitCount < Int64(self.imageArray.count))){
+                self.progress!.completedUnitCount = 0
+            }
+            self.setImageView.image = self.imageArray[Int(self.progress!.completedUnitCount)]
+            self.updateUIElements()
+            self.animating = true
+            
+        }
         stopButton.isHidden = false
         startButton.isHidden = true
-        imageUISlider.setValue(0, animated: true)
-        imageStepper.value = Double(0)
     }
     
     
     @IBAction func stopImageAnimation() {
-        if self.setImageView.isAnimating {
-            let end = DispatchTime.now()
-            self.setImageView.stopAnimating()
-            let interval = end.uptimeNanoseconds - (startOfAnimation?.uptimeNanoseconds ?? 0)
-            let timeInterval = Float80(interval) / 1_000_000_000
-            self.setImageView.image = imageArray?[getImageIndex(timeInterval: timeInterval)]
+        if self.animating {
+            timer.invalidate()
+            self.animating = false
             stopButton.isHidden = true
             startButton.isHidden = false
-            imageUISlider.setValue(Float(currentImageIndex), animated: true)
-            imageStepper.value = Double(currentImageIndex)
+            
         }
    }
     
     @IBAction func changeImagesSlider(_ sender: UISlider) {
-        guard !self.setImageView.isAnimating else {
+        guard !self.animating else {
             return
         }
         guard sender == imageUISlider else {
             return
         }
-        currentImageIndex = Int(imageUISlider.value)
-        self.setImageView.image = imageArray?[Int(imageUISlider.value)]
-        imageStepper.value = Double(currentImageIndex)
+        self.progress!.completedUnitCount = Int64(imageUISlider.value)
+        self.setImageView.image = imageArray[Int(imageUISlider.value)]
+        imageStepper.value = Double(self.progress!.completedUnitCount)
+        imageProgressiveView.setProgress(Float(self.progress!.fractionCompleted), animated: true)
     }
     
     
     @IBAction func changeImageStepper(_ sender: UIStepper) {
-        guard !self.setImageView.isAnimating else {
+        guard !self.animating else {
             return
         }
         guard sender == imageStepper else {
             return
         }
-        currentImageIndex = Int(imageStepper.value)
-        self.setImageView.image = imageArray?[Int(imageStepper.value)]
-        imageUISlider.setValue(Float(currentImageIndex), animated: true)
+        self.progress!.completedUnitCount = Int64(imageStepper.value)
+        self.setImageView.image = imageArray[Int(imageStepper.value)]
+        updateUIElements()
+    }
+    private func updateUIElements(){
+        imageUISlider.setValue(Float(self.progress!.completedUnitCount), animated: true)
+        imageStepper.value = Double(self.progress!.completedUnitCount)
+        imageProgressiveView.setProgress(Float(self.progress!.fractionCompleted), animated: true)
     }
     
-    
-    
-    private func getImageIndex(timeInterval:Float80) -> Int{
-        let amount = (Float80(imageArray?.count ?? 0) / Float80(animationDuration)) * timeInterval
-        currentImageIndex = Int(amount) % (imageArray?.count ?? 0)
-        guard notFirstTime else {
-            if(currentImageIndex != 0){
-                currentImageIndex -= 1
-            }else{
-                currentImageIndex = (imageArray?.count ?? 0) - 1
-            }
-            notFirstTime = true
-            return currentImageIndex
-        }
-        return currentImageIndex
-    }
 }
