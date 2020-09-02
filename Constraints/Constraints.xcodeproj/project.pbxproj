@@ -13,6 +13,7 @@
 		E745BA3324F7D774005EB21E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E745BA3124F7D774005EB21E /* Main.storyboard */; };
 		E745BA3524F7D779005EB21E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E745BA3424F7D779005EB21E /* Assets.xcassets */; };
 		E745BA3824F7D779005EB21E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E745BA3624F7D779005EB21E /* LaunchScreen.storyboard */; };
+		E745BA4324FF9DDE005EB21E /* CustomSegmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E745BA4224FF9DDE005EB21E /* CustomSegmentViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E745BA3424F7D779005EB21E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E745BA3724F7D779005EB21E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E745BA3924F7D779005EB21E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E745BA4224FF9DDE005EB21E /* CustomSegmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +62,6 @@
 				E745BA3F24F7D78E005EB21E /* Storyboards */,
 				E745BA2B24F7D774005EB21E /* AppDelegate.swift */,
 				E745BA2D24F7D774005EB21E /* SceneDelegate.swift */,
-				E745BA2F24F7D774005EB21E /* ViewController.swift */,
 				E745BA3424F7D779005EB21E /* Assets.xcassets */,
 				E745BA3624F7D779005EB21E /* LaunchScreen.storyboard */,
 				E745BA3924F7D779005EB21E /* Info.plist */,
@@ -79,6 +80,8 @@
 		E745BA4124F7D7B6005EB21E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E745BA2F24F7D774005EB21E /* ViewController.swift */,
+				E745BA4224FF9DDE005EB21E /* CustomSegmentViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -156,6 +159,7 @@
 			files = (
 				E745BA3024F7D774005EB21E /* ViewController.swift in Sources */,
 				E745BA2C24F7D774005EB21E /* AppDelegate.swift in Sources */,
+				E745BA4324FF9DDE005EB21E /* CustomSegmentViewController.swift in Sources */,
 				E745BA2E24F7D774005EB21E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
