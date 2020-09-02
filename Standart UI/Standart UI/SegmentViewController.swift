@@ -47,6 +47,8 @@ class SegmentViewController: UIViewController {
     }
     
     @IBAction func updateTimeZoneTextField() {
+        formatter.timeZone = .current
+        dateLabel.text = formatter.string(from: datePicker.date)
         if timeZoneString == "+" || timeZoneString == "-" {
             return
         }
@@ -57,30 +59,15 @@ class SegmentViewController: UIViewController {
     
     @IBAction func timeZoneChanged() {
         timeZoneString = timeZoneTextField.text ?? " "
-        var timeZoneSub:Substring = ""
-        if(timeZoneString.count == 0){
+        if(timeZoneString.count == 0 || timeZoneString.count == 1){
             updateTimeZoneTextField()
         }
-        if(positiveTimeZone){
-            let index = timeZoneString.index(timeZoneString.startIndex, offsetBy: 1)
-            if index != timeZoneString.endIndex {
-                timeZoneSub = timeZoneString[index...]
-            }
-        }else{
-            let index = timeZoneString.index(timeZoneString.startIndex, offsetBy: 1)
-            if index != timeZoneString.endIndex {
-                timeZoneSub = timeZoneString[index...]
-            }
-        }
-        if let timeZoneHour = Int(timeZoneSub){
-            if(timeZoneHour > 14){
+        if let timeZoneHour = Int(timeZoneString){
+            if(timeZoneHour > 14 || timeZoneHour < -12){
                 timeZoneTextField.text = "Invalid Time Zone"
                 view.endEditing(true)
             }else{
-                var timeZoneSecond = timeZoneHour * 3600
-                if(!positiveTimeZone){
-                    timeZoneSecond = -timeZoneSecond
-                }
+                let timeZoneSecond = timeZoneHour * 3600
                 formatter.timeZone = TimeZone(secondsFromGMT: timeZoneSecond)
                 updateDate()
             }
@@ -112,7 +99,7 @@ class SegmentViewController: UIViewController {
     
     @IBAction func changeAlpha() {
         if alpfaUISwith.isOn {
-            imageUIImageView.alpha = CGFloat(0.3)
+            imageUIImageView.alpha = 0.3
             indicator.startAnimating()
         }else{
             imageUIImageView.alpha = CGFloat(1)
