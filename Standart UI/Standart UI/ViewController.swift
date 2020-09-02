@@ -103,7 +103,7 @@ class ViewController: UIViewController {
         if let locProgress = progress {
             imageUISlider.setValue(Float(locProgress.completedUnitCount), animated: true)
             imageStepper.value = Double(locProgress.completedUnitCount)
-            imageProgressiveView.setProgress(Float(frComp), animated: true)
+            imageProgressiveView.setProgress(Float(locProgress.fractionCompleted), animated: true)
         }
     }
     
