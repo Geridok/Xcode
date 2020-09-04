@@ -43,15 +43,16 @@ class ViewController: UIViewController {
     }
 
     @IBAction func startImageAnimation() {
-        if let loc_progres = self.progress{
+        if let locProgress = self.progress{
         timer = Timer.scheduledTimer(withTimeInterval: timeForOneImage, repeats: true){ timer in
-            loc_progres.completedUnitCount += 1
-            if(!((loc_progres.completedUnitCount) < Int64(self.imageArray.count))){
-                loc_progres.completedUnitCount = 0
+            locProgress.completedUnitCount += 1
+            if((locProgress.completedUnitCount >= Int64(self.imageArray.count))){
+                locProgress.completedUnitCount = 0
             }
-            self.setImageView.image = self.imageArray[Int(loc_progres.completedUnitCount)]
+            self.setImageView.image = self.imageArray[Int(locProgress.completedUnitCount)]
             self.updateUIElements()
             self.animating = true
+            self.imageProgressiveView.observedProgress = locProgress
             
         }
         stopButton.isHidden = false
@@ -103,7 +104,6 @@ class ViewController: UIViewController {
         if let locProgress = progress {
             imageUISlider.setValue(Float(locProgress.completedUnitCount), animated: true)
             imageStepper.value = Double(locProgress.completedUnitCount)
-            imageProgressiveView.setProgress(Float(locProgress.fractionCompleted), animated: true)
         }
     }
     

@@ -102,7 +102,7 @@ class SegmentViewController: UIViewController {
             imageUIImageView.alpha = 0.3
             indicator.startAnimating()
         }else{
-            imageUIImageView.alpha = CGFloat(1)
+            imageUIImageView.alpha = 1.0
             indicator.stopAnimating()
         }
     }
