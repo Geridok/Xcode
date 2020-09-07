@@ -9,12 +9,30 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var rightLabel: UILabel!
+    @IBOutlet weak var leftLabel: UILabel!
+    
+    @IBOutlet weak var leftTextField: UITextField!
+    @IBOutlet weak var rightTextField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureEnd))
+            self.view.addGestureRecognizer(tapGesture)
+        }
+        
+    @objc func tapGestureEnd(){
+            view.endEditing(true)
+        }
+
+    @IBAction func changelabel(_ sender: UITextField) {
+        if sender == leftTextField{
+           leftLabel.text = leftTextField.text
+        }else{
+            rightLabel.text = rightTextField.text
+        }
     }
-
-
+    
+    
 }
 
