@@ -105,7 +105,6 @@
                             <constraint firstItem="hvW-FN-bIi" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="T1Q-6u-6Zy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="eWd-zT-F9e" secondAttribute="trailing" constant="9" id="WFs-L8-Jgf"/>
                             <constraint firstItem="wh7-nZ-aSI" firstAttribute="centerX" secondItem="hvW-FN-bIi" secondAttribute="centerX" id="Y4O-s3-RdI"/>
-                            <constraint firstItem="hvW-FN-bIi" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="0.0390117" id="YB1-Ip-TT2"/>
                             <constraint firstItem="eWd-zT-F9e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="aRi-Tj-sFH"/>
                             <constraint firstItem="5fZ-e8-D0y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="apN-cJ-Hu0"/>
                             <constraint firstItem="L98-NG-t3O" firstAttribute="top" secondItem="g5j-V5-LRr" secondAttribute="bottom" constant="20" id="c4i-6z-TeQ"/>
@@ -166,15 +165,24 @@
                                     <action selector="changeLineAmount" destination="7vj-gy-UyO" eventType="touchUpInside" id="r7h-ih-DKD"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hF3-nr-uIC">
+                                <rect key="frame" x="20" y="189" width="240" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="wGk-6F-Prb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="hF3-nr-uIC" firstAttribute="leading" secondItem="Tia-od-YtG" secondAttribute="leading" constant="20" id="Hyn-52-i0D"/>
                             <constraint firstItem="Tia-od-YtG" firstAttribute="trailing" secondItem="xDE-mj-pAN" secondAttribute="trailing" constant="20" id="OgM-Wx-BUK"/>
                             <constraint firstItem="xDE-mj-pAN" firstAttribute="top" secondItem="Tia-od-YtG" secondAttribute="top" constant="80" id="PWd-A5-RJs"/>
                             <constraint firstItem="Tia-od-YtG" firstAttribute="trailing" secondItem="Pph-RS-z7w" secondAttribute="trailing" constant="20" id="VsI-BY-0sg"/>
                             <constraint firstItem="xDE-mj-pAN" firstAttribute="leading" secondItem="Tia-od-YtG" secondAttribute="leading" constant="20" id="gbx-I8-oBf"/>
                             <constraint firstItem="Pph-RS-z7w" firstAttribute="top" relation="greaterThanOrEqual" secondItem="xDE-mj-pAN" secondAttribute="bottom" priority="990" constant="10" id="wuE-0T-L5O"/>
                             <constraint firstItem="Tia-od-YtG" firstAttribute="bottom" secondItem="Pph-RS-z7w" secondAttribute="bottom" constant="60" id="z9R-LY-J6e"/>
+                            <constraint firstItem="hF3-nr-uIC" firstAttribute="top" secondItem="xDE-mj-pAN" secondAttribute="bottom" constant="35" id="zXJ-1W-vdx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Tia-od-YtG"/>
                     </view>
