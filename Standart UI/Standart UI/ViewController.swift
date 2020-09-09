@@ -7,40 +7,96 @@
 //
 
 import UIKit
-
+import Foundation
 class ViewController: UIViewController {
 
     @IBOutlet weak var setImageView: UIImageView!
     @IBOutlet weak var generateUIButton: UIButton!
+    @IBOutlet weak var imageUISlider: UISlider!
+    @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var imageStepper: UIStepper!
+    @IBOutlet weak var imageProgressiveView: UIProgressView!
     
-
+    
     let imageSetNames = ["first","second","third","forth",
                          "fifth","six","eight","nine"]
-    var UIImageArray:[UIImage] = []
-    var currentImageIndex = 0
+    var imageArray:[UIImage]  = []
+    let timeForOneImage:Float80 = 0.5
+    var startOfAnimation: DispatchTime?
+    var animating = false
+    var timer: Timer = Timer()
+    var progress:Progress?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         for item in imageSetNames {
-            UIImageArray.append(UIImage(imageLiteralResourceName: item))
+            imageArray.append(UIImage(imageLiteralResourceName: item))
         }
+        imageUISlider.minimumValue = 0
+        imageUISlider.maximumValue = Float(imageArray.count) - 1
+        imageStepper.maximumValue = Double((imageArray.count) - 1)
+        stopButton.isHidden = true
+        progress = Progress(totalUnitCount: Int64(imageArray.count) - 1)
+
     }
 
-    @IBAction func nextImage() {
-        currentImageIndex += 1
-        if(currentImageIndex >= 8){
-            currentImageIndex = 0
+    @IBAction func startImageAnimation() {
+        timer = Timer.scheduledTimer(withTimeInterval: TimeInterval(timeForOneImage), repeats: true){ timer in
+            self.progress!.completedUnitCount += 1
+            if(!(self.progress!.completedUnitCount < Int64(self.imageArray.count))){
+                self.progress!.completedUnitCount = 0
+            }
+            self.setImageView.image = self.imageArray[Int(self.progress!.completedUnitCount)]
+            self.updateUIElements()
+            self.animating = true
+            
         }
-        setImageView.image = UIImageArray[currentImageIndex]
+        stopButton.isHidden = false
+        startButton.isHidden = true
     }
     
     
-    @IBAction func backImage() {
-        currentImageIndex -= 1
-        if(currentImageIndex <= 0){
-            currentImageIndex = 7
+    @IBAction func stopImageAnimation() {
+        if self.animating {
+            timer.invalidate()
+            self.animating = false
+            stopButton.isHidden = true
+            startButton.isHidden = false
+            
         }
-        setImageView.image = UIImageArray[currentImageIndex]
+   }
+    
+    @IBAction func changeImagesSlider(_ sender: UISlider) {
+        guard !self.animating else {
+            return
+        }
+        guard sender == imageUISlider else {
+            return
+        }
+        self.progress!.completedUnitCount = Int64(imageUISlider.value)
+        self.setImageView.image = imageArray[Int(imageUISlider.value)]
+        imageStepper.value = Double(self.progress!.completedUnitCount)
+        imageProgressiveView.setProgress(Float(self.progress!.fractionCompleted), animated: true)
     }
-
+    
+    
+    @IBAction func changeImageStepper(_ sender: UIStepper) {
+        guard !self.animating else {
+            return
+        }
+        guard sender == imageStepper else {
+            return
+        }
+        self.progress!.completedUnitCount = Int64(imageStepper.value)
+        self.setImageView.image = imageArray[Int(imageStepper.value)]
+        updateUIElements()
+    }
+    private func updateUIElements(){
+        imageUISlider.setValue(Float(self.progress!.completedUnitCount), animated: true)
+        imageStepper.value = Double(self.progress!.completedUnitCount)
+        imageProgressiveView.setProgress(Float(self.progress!.fractionCompleted), animated: true)
+    }
+    
 }
