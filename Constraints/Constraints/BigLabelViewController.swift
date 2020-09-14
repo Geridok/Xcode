@@ -21,7 +21,7 @@ class BigLabelViewController: UIViewController {
     }
     
     @IBAction func changeLineAmount() {
-        guard isBig else {
+        if !isBig {
             TextUILabel.numberOfLines = 5
             isBig = true
             return
