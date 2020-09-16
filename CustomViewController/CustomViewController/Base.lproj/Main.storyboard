@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Custom View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="CustomViewController" customModule="CustomViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="118" translatesAutoresizingMaskIntoConstraints="NO" id="ao6-U5-crZ">
+                                <rect key="frame" x="20" y="44" width="374" height="22"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2O1-hf-jIv">
+                                        <rect key="frame" x="0.0" y="0.0" width="46" height="22"/>
+                                        <state key="normal" image="1.circle" catalog="system"/>
+                                        <connections>
+                                            <action selector="viewChoice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4om-KS-8FZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7FK-xF-c3R">
+                                        <rect key="frame" x="164" y="0.0" width="46" height="22"/>
+                                        <state key="normal" image="2.circle" catalog="system"/>
+                                        <connections>
+                                            <action selector="viewChoice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ddF-5o-aHi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DuH-Rh-edM">
+                                        <rect key="frame" x="328" y="0.0" width="46" height="22"/>
+                                        <state key="normal" image="3.circle" catalog="system"/>
+                                        <connections>
+                                            <action selector="viewChoice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kgJ-Dc-cuU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J0o-R4-dqR">
+                                <rect key="frame" x="0.0" y="66" width="414" height="796"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ao6-U5-crZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="0a4-6k-hwP"/>
+                            <constraint firstItem="ao6-U5-crZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="7aE-tg-zWH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ao6-U5-crZ" secondAttribute="trailing" constant="20" id="Egz-e7-ExL"/>
+                            <constraint firstItem="J0o-R4-dqR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JJ3-Uz-Jwl"/>
+                            <constraint firstItem="J0o-R4-dqR" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="jQx-o9-wmt"/>
+                            <constraint firstItem="J0o-R4-dqR" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="udd-JL-u6g"/>
+                            <constraint firstItem="J0o-R4-dqR" firstAttribute="top" secondItem="ao6-U5-crZ" secondAttribute="bottom" id="wCv-MQ-3Xo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="safeAreaForControllers" destination="J0o-R4-dqR" id="Ddf-DS-fjx"/>
+                        <outletCollection property="buttonArray" destination="2O1-hf-jIv" collectionClass="NSMutableArray" id="Py7-7a-nn3"/>
+                        <outletCollection property="buttonArray" destination="7FK-xF-c3R" collectionClass="NSMutableArray" id="W3L-BT-yky"/>
+                        <outletCollection property="buttonArray" destination="DuH-Rh-edM" collectionClass="NSMutableArray" id="hEj-i6-oYV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137.68115942028987" y="126.5625"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="1.circle" catalog="system" width="128" height="121"/>
+        <image name="2.circle" catalog="system" width="128" height="121"/>
+        <image name="3.circle" catalog="system" width="128" height="121"/>
+    </resources>
+</document>
