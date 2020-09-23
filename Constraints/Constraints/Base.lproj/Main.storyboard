@@ -228,10 +228,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="HKM-nf-I6r">
-                                <rect key="frame" x="10" y="388" width="394" height="120"/>
+                                <rect key="frame" x="10" y="423" width="394" height="85"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="NTL-Bj-SEN">
-                                        <rect key="frame" x="0.0" y="28" width="394" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="28" width="93.666666666666671" height="20.333333333333329"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="255" verticalHuggingPriority="251" horizontalCompressionResistancePriority="755" text="From " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZb-hL-FO2">
                                                 <rect key="frame" x="0.0" y="0.0" width="43.666666666666664" height="20.333333333333332"/>
@@ -246,7 +246,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="755" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i9I-Yp-qJV">
-                                                <rect key="frame" x="75" y="0.0" width="319" height="20.333333333333332"/>
+                                                <rect key="frame" x="75" y="0.0" width="18.666666666666671" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -257,17 +257,12 @@
                                             <constraint firstItem="YZb-hL-FO2" firstAttribute="leading" secondItem="NTL-Bj-SEN" secondAttribute="leading" id="vYU-3V-4D1"/>
                                         </constraints>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="square.and.arrow.up" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="C1G-1h-HkI">
-                                        <rect key="frame" x="344" y="70" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="NTL-Bj-SEN" firstAttribute="top" secondItem="HKM-nf-I6r" secondAttribute="top" constant="28" id="Hzm-uw-6un"/>
-                                    <constraint firstAttribute="width" secondItem="HKM-nf-I6r" secondAttribute="height" multiplier="197:60" id="ctD-Q8-Clr"/>
+                                    <constraint firstAttribute="width" secondItem="HKM-nf-I6r" secondAttribute="height" multiplier="394:85" id="OZM-td-oK5"/>
                                     <constraint firstItem="NTL-Bj-SEN" firstAttribute="leading" secondItem="HKM-nf-I6r" secondAttribute="leading" id="fTz-sT-odf"/>
-                                    <constraint firstAttribute="trailing" secondItem="NTL-Bj-SEN" secondAttribute="trailing" id="iWO-E6-wet"/>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hcY-cR-kMg">
@@ -573,6 +568,5 @@
         <image name="1.circle" catalog="system" width="128" height="121"/>
         <image name="2.circle" catalog="system" width="128" height="121"/>
         <image name="3.circle" catalog="system" width="128" height="121"/>
-        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
     </resources>
 </document>
