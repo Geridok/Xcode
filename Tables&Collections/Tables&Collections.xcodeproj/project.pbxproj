@@ -14,6 +14,8 @@
 		E7A36602251B14860062C627 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7A36600251B14860062C627 /* Main.storyboard */; };
 		E7A36604251B148A0062C627 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7A36603251B148A0062C627 /* Assets.xcassets */; };
 		E7A36607251B148A0062C627 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7A36605251B148A0062C627 /* LaunchScreen.storyboard */; };
+		E7B5D53C253457BA002BF467 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5D53B253457BA002BF467 /* SettingViewController.swift */; };
+		E7B5D54225345B54002BF467 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7B5D54125345B54002BF467 /* SettingTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		E7A36603251B148A0062C627 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E7A36606251B148A0062C627 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E7A36608251B148A0062C627 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E7B5D53B253457BA002BF467 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		E7B5D54125345B54002BF467 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,8 +76,8 @@
 		E7A3660E251B149A0062C627 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E7A365FE251B14860062C627 /* ShopViewController.swift */,
-				E799EF2D25307F520000AAF4 /* ShopCollectionViewCell.swift */,
+				E7B5D53D253457CF002BF467 /* Shop */,
+				E7B5D53E253457E0002BF467 /* Settings */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -84,6 +88,24 @@
 				E7A36600251B14860062C627 /* Main.storyboard */,
 			);
 			name = StoryBoards;
+			sourceTree = "<group>";
+		};
+		E7B5D53D253457CF002BF467 /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+				E7A365FE251B14860062C627 /* ShopViewController.swift */,
+				E799EF2D25307F520000AAF4 /* ShopCollectionViewCell.swift */,
+			);
+			name = Shop;
+			sourceTree = "<group>";
+		};
+		E7B5D53E253457E0002BF467 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				E7B5D53B253457BA002BF467 /* SettingViewController.swift */,
+				E7B5D54125345B54002BF467 /* SettingTableViewCell.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,6 +179,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7B5D54225345B54002BF467 /* SettingTableViewCell.swift in Sources */,
+				E7B5D53C253457BA002BF467 /* SettingViewController.swift in Sources */,
 				E799EF2E25307F520000AAF4 /* ShopCollectionViewCell.swift in Sources */,
 				E7A365FF251B14860062C627 /* ShopViewController.swift in Sources */,
 				E7A365FB251B14860062C627 /* AppDelegate.swift in Sources */,

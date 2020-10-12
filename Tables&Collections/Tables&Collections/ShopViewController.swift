@@ -40,7 +40,6 @@ extension ShopViewController: UICollectionViewDelegateFlowLayout,UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize{
-        //return CGSize(width: UIScreen.main.bounds.width/2, height:  UIScreen.main.bounds.height/2)
         var numberOfCellInRow : Int = 0
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
@@ -56,7 +55,7 @@ extension ShopViewController: UICollectionViewDelegateFlowLayout,UICollectionVie
         @unknown default:
             break
         }
-        var collectionCellWidth : CGFloat = (self.view.frame.size.width/CGFloat(numberOfCellInRow)) - 15
+        let collectionCellWidth : CGFloat = (self.view.frame.size.width/CGFloat(numberOfCellInRow)) - 15
         return CGSize(width: collectionCellWidth , height: collectionCellWidth*2)
     }
     
