@@ -13,6 +13,16 @@ struct SettingParagraph{
     var settingsImages:[UIImage] = []
 }
 
+struct Setting {
+    let title: String
+    let icon: UIImage
+}
+
+struct SettingsSection {
+    let title: String
+    let settings: [Setting]
+}
+
 class SettingParagraphFabric{
     static func getAllSettingParagraph() -> [SettingParagraph]{
         return [
@@ -27,13 +37,35 @@ class SettingParagraphFabric{
                              settingsImages: ["setting.png"].map{UIImage(imageLiteralResourceName: $0)})
         ]
     }
+    static func getSettingSection()-> [SettingsSection]{
+        return[
+            SettingsSection(title: "General", settings: [
+                Setting(title: "General", icon: UIImage(imageLiteralResourceName: "setting.png")),
+                Setting(title: "Accessibility", icon: UIImage(imageLiteralResourceName: "setting.png")),
+                Setting(title: "Privacy", icon: UIImage(imageLiteralResourceName: "setting.png"))]),
+            SettingsSection(title: "Security", settings:  [Setting(title: "General", icon: UIImage(imageLiteralResourceName: "setting.png"))]),
+            SettingsSection(title: "Other", settings: [
+            Setting(title: "Maps", icon: UIImage(imageLiteralResourceName: "setting.png")),
+            Setting(title: "Safari", icon: UIImage(imageLiteralResourceName: "setting.png")),
+            Setting(title: "News", icon: UIImage(imageLiteralResourceName: "setting.png")),
+            Setting(title: "Heart", icon: UIImage(imageLiteralResourceName: "setting.png")),
+            Setting(title: "General", icon: UIImage(imageLiteralResourceName: "setting.png")),
+            Setting(title: "Accessibility", icon: UIImage(imageLiteralResourceName: "setting.png")),
+            Setting(title: "Maps", icon: UIImage(imageLiteralResourceName: "setting.png")),
+            Setting(title: "Safari", icon: UIImage(imageLiteralResourceName: "setting.png")),
+            Setting(title: "News", icon: UIImage(imageLiteralResourceName: "setting.png")),
+            Setting(title: "Heart", icon: UIImage(imageLiteralResourceName: "setting.png")),
+            Setting(title: "General", icon: UIImage(imageLiteralResourceName: "setting.png")),
+            Setting(title: "Accessibility", icon: UIImage(imageLiteralResourceName: "setting.png"))])
+        ]
+    }
 }
 
 class SettingViewController: UIViewController {
 
     @IBOutlet weak var settingTableView: UITableView!
     
-    let settingParagraphs = SettingParagraphFabric.getAllSettingParagraph()
+    let settingParagraphs = SettingParagraphFabric.getSettingSection()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,11 +84,11 @@ extension SettingViewController: UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Header") as! SettingTableViewCell
-        cell.nameLabel.text = " "
+        cell.nameLabel.text = settingParagraphs[section].title
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return settingParagraphs[section].settingsNames.count
+        return settingParagraphs[section].settings.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -65,13 +97,11 @@ extension SettingViewController: UITableViewDataSource,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "setCell") as! SettingTableViewCell
-        if(settingParagraphs[indexPath.section].settingsNames.count == settingParagraphs[indexPath.section].settingsImages.count){
-            cell.settingImageView.image = settingParagraphs[indexPath.section].settingsImages[indexPath.row]
-        }else{
-            cell.settingImageView.image = settingParagraphs[indexPath.section].settingsImages[0]
-        }
         
-        cell.nameLabel.text = settingParagraphs[indexPath.section].settingsNames[indexPath.row]
+        cell.settingImageView?.image = settingParagraphs[indexPath.section].settings[indexPath.row].icon
+        
+        cell.nameLabel.text = settingParagraphs[indexPath.section].settings[indexPath.row].title
+        
         return cell
     }
     

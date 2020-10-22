@@ -8,16 +8,36 @@
 
 import UIKit
 
+
+struct Product {
+    let name:String
+    let image:UIImage
+    let price:Double
+}
+
+struct ProductsFabric {
+    static func getAllProducts()->[Product]{
+        return [
+            Product(name: "MOCK NECK TOP", image: UIImage(imageLiteralResourceName: "1.jpg"), price: 120),
+            Product(name: "ALLOVER PRINT HOODIE", image: UIImage(imageLiteralResourceName: "2.jpg"), price: 100),
+            Product(name: "CROPPED LOGO BACK HOODIE", image: UIImage(imageLiteralResourceName: "3.jpg"), price: 98),
+            Product(name: "POINTELLE CARDIGAN", image: UIImage(imageLiteralResourceName: "4.jpg"), price: 110),
+            Product(name: "FLAG LOGO SWEATER", image: UIImage(imageLiteralResourceName: "5.jpg"), price: 76),
+            Product(name: "SCOOP-NECK BODYSUIT", image: UIImage(imageLiteralResourceName: "6.jpg"), price: 88),
+            Product(name: "STRIPE OXFORD SHIRT88", image: UIImage(imageLiteralResourceName: "7.jpg"), price: 94),
+            Product(name: "ORGANIC COTTON DRAWSTRING PANT", image: UIImage(imageLiteralResourceName: "8.jpg"), price: 99),
+        
+        ]
+    }
+}
+
 class ShopViewController: UIViewController {
 
 
     var markIsFilled = false
-    let clothesDescription:[String] = [ "MOCK NECK TOP","ALLOVER PRINT HOODIE","CROPPED LOGO BACK HOODIE","POINTELLE CARDIGAN", "FLAG LOGO SWEATER","SCOOP-NECK BODYSUIT","STRIPE OXFORD SHIRT88","ORGANIC COTTON DRAWSTRING PANT" ]
+    let products = ProductsFabric.getAllProducts()
     
-    let clothesImages = ["1.jpg","2.jpg","3.jpg","4.jpg","5.jpg","6.jpg","7.jpg","8.jpg","9.jpg"].map{ UIImage(imageLiteralResourceName: $0) }
-    
-    let clothesOldPrice = [120,100,98,110,76,88,94,99,76]
-    let clothesDiscountPercent = 30
+    let clothesDiscountPercent:Double = 30
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,16 +46,16 @@ class ShopViewController: UIViewController {
 
 extension ShopViewController: UICollectionViewDelegateFlowLayout,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return clothesDescription.count
+        return products.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ShopCell", for: indexPath) as! ShopCollectionViewCell
-        cell.productUIImageView.image = clothesImages[indexPath.row]
-        let attrString = NSAttributedString(string: String(clothesOldPrice[indexPath.row]) + "$", attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue])
+        cell.productUIImageView.image = products[indexPath.row].image
+        let attrString = NSAttributedString(string: String(products[indexPath.row].price) + "$", attributes: [NSAttributedString.Key.strikethroughStyle: NSUnderlineStyle.single.rawValue])
         cell.oldPriceUILabel.attributedText = attrString
-        cell.newPriceUILabel.text = String((clothesOldPrice[indexPath.row]*clothesDiscountPercent)/100) + "$"
-        cell.DescriptionUILabel.text = clothesDescription[indexPath.row]
+        cell.newPriceUILabel.text = String((products[indexPath.row].price * clothesDiscountPercent)/100) + "$"
+        cell.DescriptionUILabel.text = products[indexPath.row].name
         return cell
     }
     
