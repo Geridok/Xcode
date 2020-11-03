@@ -82,17 +82,12 @@ extension SettingViewController: UITableViewDataSource,UITableViewDelegate{
         return settingParagraphs.count
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Header") as! SettingTableViewCell
-        cell.nameLabel.text = settingParagraphs[section].title
-        return cell
-    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return settingParagraphs[section].settings.count
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "  "
+        return settingParagraphs[section].title
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

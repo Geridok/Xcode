@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E70DC1142540ADD10098B3B4 /* BurgerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70DC1132540ADD10098B3B4 /* BurgerViewController.swift */; };
+		E70DC1142540ADD10098B3B4 /* BurgerCustomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70DC1132540ADD10098B3B4 /* BurgerCustomTableViewController.swift */; };
+		E7415EC6254FF4100056AC40 /* BurgerCustomCollectiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7415EC5254FF4100056AC40 /* BurgerCustomCollectiveViewController.swift */; };
+		E7415EC825514F2C0056AC40 /* BurgerImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7415EC725514F2C0056AC40 /* BurgerImageCollectionViewCell.swift */; };
 		E799EF2E25307F520000AAF4 /* ShopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E799EF2D25307F520000AAF4 /* ShopCollectionViewCell.swift */; };
 		E7A365FB251B14860062C627 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A365FA251B14860062C627 /* AppDelegate.swift */; };
 		E7A365FD251B14860062C627 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A365FC251B14860062C627 /* SceneDelegate.swift */; };
@@ -20,7 +22,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E70DC1132540ADD10098B3B4 /* BurgerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurgerViewController.swift; sourceTree = "<group>"; };
+		E70DC1132540ADD10098B3B4 /* BurgerCustomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurgerCustomTableViewController.swift; sourceTree = "<group>"; };
+		E7415EC5254FF4100056AC40 /* BurgerCustomCollectiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurgerCustomCollectiveViewController.swift; sourceTree = "<group>"; };
+		E7415EC725514F2C0056AC40 /* BurgerImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BurgerImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		E799EF2D25307F520000AAF4 /* ShopCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopCollectionViewCell.swift; sourceTree = "<group>"; };
 		E7A365F7251B14860062C627 /* Tables&Collections.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tables&Collections.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7A365FA251B14860062C627 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -48,7 +52,9 @@
 		E70DC1122540A6100098B3B4 /* Burgers */ = {
 			isa = PBXGroup;
 			children = (
-				E70DC1132540ADD10098B3B4 /* BurgerViewController.swift */,
+				E70DC1132540ADD10098B3B4 /* BurgerCustomTableViewController.swift */,
+				E7415EC5254FF4100056AC40 /* BurgerCustomCollectiveViewController.swift */,
+				E7415EC725514F2C0056AC40 /* BurgerImageCollectionViewCell.swift */,
 			);
 			name = Burgers;
 			sourceTree = "<group>";
@@ -190,12 +196,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E70DC1142540ADD10098B3B4 /* BurgerViewController.swift in Sources */,
+				E7415EC6254FF4100056AC40 /* BurgerCustomCollectiveViewController.swift in Sources */,
+				E70DC1142540ADD10098B3B4 /* BurgerCustomTableViewController.swift in Sources */,
 				E7B5D54225345B54002BF467 /* SettingTableViewCell.swift in Sources */,
 				E7B5D53C253457BA002BF467 /* SettingViewController.swift in Sources */,
 				E799EF2E25307F520000AAF4 /* ShopCollectionViewCell.swift in Sources */,
 				E7A365FF251B14860062C627 /* ShopViewController.swift in Sources */,
 				E7A365FB251B14860062C627 /* AppDelegate.swift in Sources */,
+				E7415EC825514F2C0056AC40 /* BurgerImageCollectionViewCell.swift in Sources */,
 				E7A365FD251B14860062C627 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
