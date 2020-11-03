@@ -19,8 +19,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.windowScene = windowScene
-        window?.rootViewController = CustomViewController()
+        let conVC = CustomViewController()
+        let one = UIViewController()
+        
+        one.view.backgroundColor = .red
+        let two = UIViewController()
+        two.view.backgroundColor = .green
+        conVC.addVC(one, buttonTitle: "one")
+        conVC.addVC(two, buttonTitle: "two")
+        
+        let defaultVC = UIViewController()
+        defaultVC.view.backgroundColor = .lightGray
+        conVC.setPlaceholder(defaultVC)
+        
+        window?.rootViewController = conVC
         window?.makeKeyAndVisible()
     }
 

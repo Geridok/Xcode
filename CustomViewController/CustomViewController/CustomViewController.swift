@@ -12,45 +12,50 @@ class CustomViewController: UIViewController {
     
     var isHidden = [Bool](repeating: true, count: 6)
     
-     private var buttonsStackView: UIStackView?
-     private var childVCStackView: UIStackView?
+    private var buttonsStackView: UIStackView? = {
+        let buttonsStackView = UIStackView()
+        buttonsStackView.axis  = NSLayoutConstraint.Axis.horizontal
+        buttonsStackView.distribution  = UIStackView.Distribution.fillEqually
+        buttonsStackView.alignment = UIStackView.Alignment.fill
+        buttonsStackView.spacing   = 10.0
+        buttonsStackView.backgroundColor = .green
+        buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
+        return buttonsStackView
+    }()
+    
+    
+    private let childVCStackView: UIStackView? = {
+        let childVCStackView = UIStackView()
+        childVCStackView.axis  = NSLayoutConstraint.Axis.vertical
+        childVCStackView.distribution  = UIStackView.Distribution.fillEqually
+        childVCStackView.alignment = UIStackView.Alignment.fill
+        childVCStackView.spacing   = 0.0
+        childVCStackView.backgroundColor = .green
+        childVCStackView.translatesAutoresizingMaskIntoConstraints = false
+        return childVCStackView
+    }()
      
     private var childs: [UIViewController] = []
     private var childsButtons: [UIButton] = []
-     private var placeholderVC: UIViewController?
+    private var placeholderVC: UIViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
-        buttonsStackView = UIStackView()
-        buttonsStackView?.axis  = NSLayoutConstraint.Axis.horizontal
-        buttonsStackView?.distribution  = UIStackView.Distribution.fillEqually
-        buttonsStackView?.alignment = UIStackView.Alignment.fill
-        buttonsStackView?.spacing   = 10.0
-        buttonsStackView?.frame = CGRect(x: 0.0, y: 0.0, width: self.view.bounds.width , height: 75.0)
-        buttonsStackView?.bounds = CGRect(x: 0.0, y: 0.0, width: self.view.bounds.width , height: 75.0)
-        buttonsStackView?.backgroundColor = .green
-        buttonsStackView?.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        childVCStackView = UIStackView()
-        childVCStackView?.axis  = NSLayoutConstraint.Axis.vertical
-        childVCStackView?.distribution  = UIStackView.Distribution.fillEqually
-        childVCStackView?.alignment = UIStackView.Alignment.fill
-        childVCStackView?.spacing   = 0.0
-        childVCStackView?.frame = CGRect(x: 0.0, y: 75.0, width: self.view.bounds.width , height: self.view.bounds.height - 75.0)
-        childVCStackView?.bounds = CGRect(x: 0.0, y: 0.0, width: self.view.bounds.width , height: self.view.bounds.height - 75.0)
-        childVCStackView?.backgroundColor = .green
-        childVCStackView?.translatesAutoresizingMaskIntoConstraints = false
-        
-        
-        self.view.addSubview(buttonsStackView!)
+        self.view.backgroundColor = .white
+    
+        self .view.addSubview(buttonsStackView!)
         self.view.addSubview(childVCStackView!)
-        buttonsStackView?.isHidden = false
-        childVCStackView?.isHidden = false
         
+        
+        buttonsStackView?.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        buttonsStackView?.rightAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.rightAnchor, multiplier: 1).isActive = true
+        buttonsStackView?.leftAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.leftAnchor, multiplier: 1).isActive = true
+        buttonsStackView?.bottomAnchor.constraint(equalTo: (childVCStackView?.topAnchor) ?? view.bottomAnchor).isActive = true
+        
+        childVCStackView?.topAnchor.constraint(equalTo: buttonsStackView?.bottomAnchor ?? view.safeAreaLayoutGuide.topAnchor).isActive = true
+        childVCStackView?.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        childVCStackView?.rightAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.rightAnchor, multiplier: 1).isActive = true
+        childVCStackView?.leftAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.leftAnchor, multiplier: 1).isActive = true
         
     }
      
@@ -58,8 +63,8 @@ class CustomViewController: UIViewController {
          assert(childs.count < 6, "Too many child ViewControllers: only 6 allowed")
         childs.append(vc)
         vc.view.isHidden = true
-        
-        var button = UIButton()
+        let button = UIButton()
+        button.addTarget(self, action: #selector(showHideContentVC(_:)), for: .allTouchEvents)
         button.titleLabel?.text = buttonTitle
         childsButtons.append(button)
         button.titleLabel?.textAlignment = .center
@@ -83,7 +88,7 @@ class CustomViewController: UIViewController {
                 hideChildVC(childs[index])
             }
         }
-        if let index = isHidden.firstIndex(of: false){
+        if isHidden.firstIndex(of: false) != nil{
             
         }else{
             placeholderVC?.view.isHidden = false
