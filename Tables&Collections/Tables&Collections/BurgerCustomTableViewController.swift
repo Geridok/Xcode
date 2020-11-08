@@ -26,8 +26,7 @@ class BurgerCustomTableViewController: UIViewController {
         generateBurgersImages()
         descriptionLabel.text = "Какое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описание"
         informationScrollView.clipsToBounds = true
-        informationScrollView.layer.cornerRadius = 50
-        informationScrollView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+        informationScrollView.layer.cornerRadius = 15
     }
     
 
