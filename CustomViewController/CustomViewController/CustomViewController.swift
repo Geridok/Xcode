@@ -41,7 +41,7 @@ class CustomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .green
     
         self .view.addSubview(buttonsStackView!)
         self.view.addSubview(childVCStackView!)

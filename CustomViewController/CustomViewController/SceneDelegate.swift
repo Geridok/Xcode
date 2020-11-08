@@ -32,6 +32,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         defaultVC.view.backgroundColor = .lightGray
         conVC.setPlaceholder(defaultVC)
         
+        window?.windowScene = windowScene
         window?.rootViewController = conVC
         window?.makeKeyAndVisible()
     }
