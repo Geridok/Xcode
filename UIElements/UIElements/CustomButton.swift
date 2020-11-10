@@ -13,17 +13,16 @@ class CustomButton: UIButton {
 
     var isSetuped = false
     
-    let substrate = UIView()
     
-    @IBInspectable var thicknessOfStroke: CGFloat = 10 {
+    @IBInspectable var borderThinkness: CGFloat = 5 {
         didSet {
-            updateSubstrate()
+            self.layer.borderWidth = borderThinkness
         }
     }
     
-    @IBInspectable var strokeColor: UIColor = .black {
+    @IBInspectable var borderColor: UIColor = .black {
         didSet{
-            updateSubstrate()
+            self.layer.borderColor = borderColor.cgColor
         }
     }
     
@@ -61,27 +60,15 @@ class CustomButton: UIButton {
             return
         }
         isSetuped = true
-        
-        updateSubstrate()
-        addSubview(substrate)
-        
-        self.frame.size.width = width
-        self.frame.size.height = height
-        self.layer.cornerRadius = corner
-        self.backgroundColor = Color
-        sendSubviewToBack(substrate)
-        substrate.alpha = 0
+        self.layer.borderColor = borderColor.cgColor
+        self.layer.borderWidth = borderThinkness
+        updateFrame()
     }
     
     private func updateFrame(){
         self.frame.size.width = width
         self.frame.size.height = height
         self.layer.cornerRadius = corner
-        updateSubstrate()
-    }
-    private func updateSubstrate(){
-        substrate.frame = CGRect(x: -thicknessOfStroke/2, y: -thicknessOfStroke/2, width: width + thicknessOfStroke, height: height + thicknessOfStroke)
-        substrate.backgroundColor = strokeColor
-        substrate.layer.cornerRadius = corner
+        self.backgroundColor = Color
     }
 }
