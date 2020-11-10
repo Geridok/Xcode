@@ -24,7 +24,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         one.view.backgroundColor = .red
         let two = UIViewController()
-        two.view.backgroundColor = .green
+        two.view.backgroundColor = .blue
         conVC.addVC(one, buttonTitle: "one")
         conVC.addVC(two, buttonTitle: "two")
         

@@ -12,7 +12,7 @@ class CustomViewController: UIViewController {
     
     var isHidden = [Bool](repeating: true, count: 6)
     
-    private var buttonsStackView: UIStackView? = {
+    private var buttonsStackView: UIStackView = {
         let buttonsStackView = UIStackView()
         buttonsStackView.axis  = NSLayoutConstraint.Axis.horizontal
         buttonsStackView.distribution  = UIStackView.Distribution.fillEqually
@@ -24,12 +24,12 @@ class CustomViewController: UIViewController {
     }()
     
     
-    private let childVCStackView: UIStackView? = {
+    private let childVCStackView: UIStackView = {
         let childVCStackView = UIStackView()
         childVCStackView.axis  = NSLayoutConstraint.Axis.vertical
         childVCStackView.distribution  = UIStackView.Distribution.fillEqually
         childVCStackView.alignment = UIStackView.Alignment.fill
-        childVCStackView.spacing   = 0.0
+        childVCStackView.spacing   = 10.0
         childVCStackView.backgroundColor = .green
         childVCStackView.translatesAutoresizingMaskIntoConstraints = false
         return childVCStackView
@@ -41,21 +41,24 @@ class CustomViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.view.backgroundColor = .green
     
-        self .view.addSubview(buttonsStackView!)
-        self.view.addSubview(childVCStackView!)
+        self .view.addSubview(buttonsStackView)
+        self.view.addSubview(childVCStackView)
         
         
-        buttonsStackView?.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
-        buttonsStackView?.rightAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.rightAnchor, multiplier: 1).isActive = true
-        buttonsStackView?.leftAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.leftAnchor, multiplier: 1).isActive = true
-        buttonsStackView?.bottomAnchor.constraint(equalTo: (childVCStackView?.topAnchor) ?? view.bottomAnchor).isActive = true
+        buttonsStackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
+        buttonsStackView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        buttonsStackView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
+        buttonsStackView.bottomAnchor.constraint(equalTo: childVCStackView.topAnchor).isActive = true
         
-        childVCStackView?.topAnchor.constraint(equalTo: buttonsStackView?.bottomAnchor ?? view.safeAreaLayoutGuide.topAnchor).isActive = true
-        childVCStackView?.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        childVCStackView?.rightAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.rightAnchor, multiplier: 1).isActive = true
-        childVCStackView?.leftAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.leftAnchor, multiplier: 1).isActive = true
+        buttonsStackView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        
+
+        childVCStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        childVCStackView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor).isActive = true
+        childVCStackView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor).isActive = true
         
     }
      
@@ -65,18 +68,25 @@ class CustomViewController: UIViewController {
         vc.view.isHidden = true
         let button = UIButton()
         button.addTarget(self, action: #selector(showHideContentVC(_:)), for: .allTouchEvents)
-        button.titleLabel?.text = buttonTitle
+        button.setTitle( buttonTitle, for: .normal)
         childsButtons.append(button)
-        button.titleLabel?.textAlignment = .center
-        buttonsStackView?.addSubview(button)
-        button.isHidden = false
+        button.setTitleColor(.black, for: .normal)
+        buttonsStackView.addArrangedSubview(button)
         
          // Сохраняем контроллер (но не показываем), создаем кнопку, показываем кнопку.
      }
      
      func setPlaceholder(_ vc: UIViewController) {
-        placeholderVC = vc
+        //placeholderVC = vc
+        //placeholderVC?.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         self.view.addSubview(vc.view)
+        NSLayoutConstraint.activate([
+            vc.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            vc.view.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
+            vc.view.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            vc.view.topAnchor.constraint(equalTo: buttonsStackView.bottomAnchor)
+        ])
+        placeholderVC = vc
         placeholderVC?.view.isHidden = true
      }
      
@@ -88,9 +98,9 @@ class CustomViewController: UIViewController {
                 hideChildVC(childs[index])
             }
         }
-        if isHidden.firstIndex(of: false) != nil{
-            
-        }else{
+        let op = isHidden.firstIndex(of: false)
+        
+        if op == nil{
             placeholderVC?.view.isHidden = false
         }
          // Если все контент контроллеры скрыты, то показываем placeholder
@@ -101,7 +111,7 @@ class CustomViewController: UIViewController {
         self.addChild(childVC)
         childVC.didMove(toParent: self)
         childVC.view.isHidden = false
-        childVCStackView?.addSubview(childVC.view)
+        childVCStackView.addSubview(childVC.view)
         if let index = childs.firstIndex(of: childVC){
             isHidden[index] = false
         }
