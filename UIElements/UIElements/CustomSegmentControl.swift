@@ -8,12 +8,16 @@
 
 import UIKit
 
+protocol WhichPressedCustomSegmentControlDelegate: NSObjectProtocol {
+    func whichPressed(_ segmentControl:CustomSegmentControl,_ sender:UIButton)
+}
+
 @IBDesignable
 class CustomSegmentControl: UIView {
     
     var isSetuped = false
-    
     var isHorizontal = true
+    weak var delegate:WhichPressedCustomSegmentControlDelegate?
     
     @IBInspectable var segmentAmount:Int = 2 {
         didSet{
@@ -26,12 +30,12 @@ class CustomSegmentControl: UIView {
     
     @IBInspectable var buttonName:String = "" {
         didSet{
-            updateButtonsName()
-            layoutIfNeeded()
+            //updateButtons()
+           // layoutIfNeeded()
         }
     }
     
-   var buttonIndex:Int = 0{
+   @IBInspectable var buttonIndex:Int = 3{
         didSet{
             if(buttonIndex >= buttonArray.count){
                 buttonIndex = buttonArray.count - 1
@@ -40,20 +44,36 @@ class CustomSegmentControl: UIView {
         }
     }
     
+    
     var buttonArray: [UIButton] = []
+    
+    var highlightView = UIView()
+    
+    @IBInspectable var highlightColor:UIColor = .blue{
+        didSet{
+            highlightView.backgroundColor = highlightColor
+        }
+    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        updateButtonArray()
+        
         
         if isSetuped{ return }
         isSetuped = true
-        
+        updateButtonArray()
+        addSubview(highlightView)
+        self.backgroundColor = .lightGray
+        highlightView.layer.cornerRadius = 10
     }
     
     private func updateLayout(){
         let (width,height) = getElementSize()
-        let gesture = UITapGestureRecognizer(target: self, action:  #selector (self.someAction (_:)))
+        
+        highlightView.frame = CGRect(x: 0, y: 0, width: width , height: height)
+        highlightView.backgroundColor = highlightColor
+        
+        
         for (index,button) in buttonArray.enumerated(){
             if isHorizontal{
                 button.frame = CGRect(x: CGFloat(index)*width , y: 0, width: width, height: height)
@@ -64,9 +84,9 @@ class CustomSegmentControl: UIView {
                 button.setTitle(String(index), for: .normal)
             }
             button.titleLabel?.textColor = .white
-            button.backgroundColor = .lightGray
             addSubview(button)
-            button.addGestureRecognizer(gesture)
+            button.addTarget(self, action: #selector(self.someAction(_:)), for: .touchUpInside)
+            self.bringSubviewToFront(button.titleLabel!)
         }
         
     }
@@ -89,7 +109,7 @@ class CustomSegmentControl: UIView {
         updateLayout()
     }
     
-    private func getElementSize() -> (CGFloat,CGFloat){
+    private func getElementSize() -> (width: CGFloat,height: CGFloat){
         if (frame.size.width >= frame.size.height){
             isHorizontal = true
             let w = frame.size.width / CGFloat(segmentAmount)
@@ -103,15 +123,29 @@ class CustomSegmentControl: UIView {
         }
     }
     
-    private func updateButtonsName() {
-        for item in buttonArray {
-            item.titleLabel?.text = buttonName
-        }
+    private func updateButtons() {
+            buttonArray[buttonIndex].titleLabel?.text = buttonName
+            buttonArray[buttonIndex].setTitle(buttonName, for: .normal)
     }
     
 
-    @objc func someAction(_ sender:UITapGestureRecognizer){
-        print("view was clicked")
+    @IBAction func someAction(_ sender: UIButton){
+        
+        let (width,height) = getElementSize()
+        if let index = buttonArray.firstIndex(of: sender){
+            
+        UIView.animate(withDuration: 0.5, delay: 0, options: .curveEaseOut, animations: {
+           var HighlightFrame = self.highlightView.frame
+            if self.isHorizontal {
+                HighlightFrame.origin.x  = width*CGFloat(index)
+            }else{
+                HighlightFrame.origin.y = height*CGFloat(index)
+            }
+            self.highlightView.frame = HighlightFrame
+         })
+            
+            delegate?.whichPressed(self, sender)
     }
-    
+        
+    }
 }
