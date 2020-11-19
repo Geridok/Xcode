@@ -28,25 +28,25 @@ class CustomButton: UIButton {
     
     @IBInspectable var width:CGFloat = 60 {
         didSet{
-            updateFrame()
+            layoutIfNeeded()
         }
     }
     
     @IBInspectable var height:CGFloat = 60 {
         didSet{
-            updateFrame()
+            layoutIfNeeded()
         }
     }
     
     @IBInspectable var Color: UIColor = .blue{
         didSet{
-            layoutIfNeeded()
+            self.backgroundColor = Color
         }
     }
     
     @IBInspectable var corner: CGFloat = 10 {
         didSet{
-            updateFrame()
+            layoutIfNeeded()
         }
     }
     
@@ -54,21 +54,12 @@ class CustomButton: UIButton {
         
         super.layoutSubviews()
         
-        
-        
-        if isSetuped {
-            return
-        }
-        isSetuped = true
-        self.layer.borderColor = borderColor.cgColor
-        self.layer.borderWidth = borderThinkness
-        updateFrame()
-    }
-    
-    private func updateFrame(){
         self.frame.size.width = width
         self.frame.size.height = height
-        self.layer.cornerRadius = corner
+        self.layer.borderColor = borderColor.cgColor
+        self.layer.borderWidth = borderThinkness
         self.backgroundColor = Color
+        self.layer.cornerRadius = corner
     }
+    
 }

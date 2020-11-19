@@ -19,28 +19,51 @@ class CustomSegmentControl: UIView {
     var isHorizontal = true
     weak var delegate:WhichPressedCustomSegmentControlDelegate?
     
-    @IBInspectable var segmentAmount:Int = 2 {
+    @IBInspectable var mainColor:UIColor = .lightGray {
         didSet{
-            if segmentAmount >= 10{
-                segmentAmount = 9
+            self.backgroundColor = mainColor
+        }
+    }
+    
+    @IBInspectable var segmentAmount:Int = 1 {
+        didSet{
+            if segmentAmount >= 5{
+                segmentAmount = 5
+            }else if(segmentAmount < 2){
+                segmentAmount = 2 
             }
             updateLayout()
         }
     }
-    
-    @IBInspectable var buttonName:String = "" {
+    @IBInspectable var buttonName_1:String = "" {
         didSet{
-            //updateButtons()
-           // layoutIfNeeded()
+            buttonArray[0].setTitle(buttonName_1, for: .normal)
         }
     }
-    
-   @IBInspectable var buttonIndex:Int = 3{
+    @IBInspectable var buttonName_2:String = "" {
         didSet{
-            if(buttonIndex >= buttonArray.count){
-                buttonIndex = buttonArray.count - 1
+            buttonArray[1].setTitle(buttonName_1, for: .normal)
+        }
+    }
+    @IBInspectable var buttonName_3:String = "" {
+        didSet{
+            if buttonArray.count >= 3 {
+                buttonArray[3].setTitle(buttonName_1, for: .normal)
             }
-            
+        }
+    }
+    @IBInspectable var buttonName_4:String = "" {
+        didSet{
+            if buttonArray.count >= 4 {
+                buttonArray[4].setTitle(buttonName_1, for: .normal)
+            }
+        }
+    }
+    @IBInspectable var buttonName_5:String = "" {
+        didSet{
+            if buttonArray.count >= 5 {
+                buttonArray[5].setTitle(buttonName_1, for: .normal)
+            }
         }
     }
     
@@ -63,8 +86,9 @@ class CustomSegmentControl: UIView {
         isSetuped = true
         updateButtonArray()
         addSubview(highlightView)
-        self.backgroundColor = .lightGray
+        self.backgroundColor = mainColor
         highlightView.layer.cornerRadius = 10
+        self.sendSubviewToBack(highlightView)
     }
     
     private func updateLayout(){
@@ -83,7 +107,7 @@ class CustomSegmentControl: UIView {
             if(!isSetuped){
                 button.setTitle(String(index), for: .normal)
             }
-            button.titleLabel?.textColor = .white
+            button.titleLabel?.textColor = .black
             addSubview(button)
             button.addTarget(self, action: #selector(self.someAction(_:)), for: .touchUpInside)
             self.bringSubviewToFront(button.titleLabel!)
@@ -93,13 +117,13 @@ class CustomSegmentControl: UIView {
     
     private func updateButtonArray(){
         if segmentAmount > buttonArray.count{
-            
             while segmentAmount != buttonArray.count{
-                buttonArray.append(UIButton())
+                let but = UIButton()
+                buttonArray.append(but)
+                but.setTitle(String(buttonArray.count), for: .normal)
             }
             
         }else{
-            
             while segmentAmount != buttonArray.count {
                 buttonArray[buttonArray.count - 1].removeFromSuperview()
                 buttonArray.remove(at: buttonArray.count - 1)
@@ -122,12 +146,6 @@ class CustomSegmentControl: UIView {
             return (w,h)
         }
     }
-    
-    private func updateButtons() {
-            buttonArray[buttonIndex].titleLabel?.text = buttonName
-            buttonArray[buttonIndex].setTitle(buttonName, for: .normal)
-    }
-    
 
     @IBAction func someAction(_ sender: UIButton){
         
