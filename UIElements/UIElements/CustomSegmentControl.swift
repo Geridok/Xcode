@@ -40,11 +40,13 @@ class CustomSegmentControl: UIView {
             buttonArray[0].setTitle(buttonName_1, for: .normal)
         }
     }
+    
     @IBInspectable var buttonName_2:String = "" {
         didSet{
             buttonArray[1].setTitle(buttonName_1, for: .normal)
         }
     }
+    
     @IBInspectable var buttonName_3:String = "" {
         didSet{
             if buttonArray.count >= 3 {
