@@ -17,9 +17,9 @@ class CustomViewController: UIViewController {
         buttonsStackView.axis  = NSLayoutConstraint.Axis.horizontal
         buttonsStackView.distribution  = UIStackView.Distribution.fillEqually
         buttonsStackView.alignment = UIStackView.Alignment.fill
+        buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
         buttonsStackView.spacing   = 10.0
         buttonsStackView.backgroundColor = .green
-        buttonsStackView.translatesAutoresizingMaskIntoConstraints = false
         return buttonsStackView
     }()
     
@@ -30,13 +30,12 @@ class CustomViewController: UIViewController {
         childVCStackView.distribution  = UIStackView.Distribution.fillEqually
         childVCStackView.alignment = UIStackView.Alignment.fill
         childVCStackView.spacing   = 10.0
-        childVCStackView.backgroundColor = .green
         childVCStackView.translatesAutoresizingMaskIntoConstraints = false
+        childVCStackView.backgroundColor = .green
         return childVCStackView
     }()
      
     private var childs: [UIViewController] = []
-    private var childsButtons: [UIButton] = []
     private var placeholderVC: UIViewController?
     
     override func viewDidLoad() {
@@ -67,9 +66,8 @@ class CustomViewController: UIViewController {
         childs.append(vc)
         vc.view.isHidden = true
         let button = UIButton()
-        button.addTarget(self, action: #selector(showHideContentVC(_:)), for: .allTouchEvents)
+        button.addTarget(self, action: #selector(showHideContentVC(_:)), for: .touchUpInside)
         button.setTitle( buttonTitle, for: .normal)
-        childsButtons.append(button)
         button.setTitleColor(.black, for: .normal)
         buttonsStackView.addArrangedSubview(button)
         
@@ -77,21 +75,20 @@ class CustomViewController: UIViewController {
      }
      
      func setPlaceholder(_ vc: UIViewController) {
-        //placeholderVC = vc
-        //placeholderVC?.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         self.view.addSubview(vc.view)
         NSLayoutConstraint.activate([
             vc.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             vc.view.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             vc.view.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
-            vc.view.topAnchor.constraint(equalTo: buttonsStackView.bottomAnchor)
+             vc.view.topAnchor.constraint(equalTo: buttonsStackView.bottomAnchor)
         ])
         placeholderVC = vc
         placeholderVC?.view.isHidden = true
      }
      
     @objc private func showHideContentVC(_ sender: UIButton) {
-        if let index = childsButtons.firstIndex(of: sender){
+        //placeholderVC?.view.topAnchor.constraint(equalTo: buttonsStackView.bottomAnchor).isActive = true
+        if let index = buttonsStackView.arrangedSubviews.firstIndex(of: sender){
             if(isHidden[index]){
                 showChildVC(childs[index])
             }else{
