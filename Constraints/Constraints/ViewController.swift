@@ -9,30 +9,48 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var rightLabel: UILabel!
-    @IBOutlet weak var leftLabel: UILabel!
-    
-    @IBOutlet weak var leftTextField: UITextField!
-    @IBOutlet weak var rightTextField: UITextField!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureEnd))
-            self.view.addGestureRecognizer(tapGesture)
-        }
-        
-    @objc func tapGestureEnd(){
-            view.endEditing(true)
-        }
 
-    @IBAction func changelabel(_ sender: UITextField) {
-        if sender == leftTextField{
-           leftLabel.text = leftTextField.text
-        }else{
-            rightLabel.text = rightTextField.text
+    @IBOutlet weak var imageView: UIImageView?
+    
+    @IBOutlet weak var fromLabel: UILabel?
+    @IBOutlet weak var arrowLabel: UILabel?
+    @IBOutlet weak var toLabel: UILabel?
+    @IBOutlet weak var bottomLabel: UILabel?
+    
+    var isFromBig = false
+    var isToBig = false
+    
+    @IBAction func showHideImage() {
+        imageView?.isHidden.toggle()
+    }
+
+    @IBAction func showHideBottomLabel() {
+        bottomLabel?.isHidden.toggle()
+    }
+    
+    @IBAction func showHideArrowLabel() {
+        arrowLabel?.isHidden.toggle()
+    }
+    
+    @IBAction func showHideToLabel() {
+        toLabel?.isHidden.toggle()
+    }
+    
+    @IBAction func updateFromLabel() {
+        isFromBig.toggle()
+        if isFromBig {
+            fromLabel?.text = "From From From From From From From From From From From From From From From From"
+        } else {
+            fromLabel?.text = "From"
         }
     }
     
-    
+    @IBAction func updateToLabel() {
+        isToBig.toggle()
+        if isToBig {
+            toLabel?.text = "To To To To To To To To To To To To To To To To To To To To To To To To To To To To To To To To To"
+        } else {
+            toLabel?.text = "To"
+        }
+    }
 }
-
