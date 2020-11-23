@@ -25,19 +25,19 @@ class CustomSegmentControl: UIView {
         }
     }
     
-    @IBInspectable var segmentAmount:Int = 1 {
+    @IBInspectable var segmentAmount:Int = 5 {
         didSet{
             if segmentAmount >= 5{
                 segmentAmount = 5
             }else if(segmentAmount < 2){
                 segmentAmount = 2 
             }
-            updateLayout()
+            updateButtonArray()
         }
     }
     @IBInspectable var buttonName_1:String = "" {
         didSet{
-            buttonArray[0].setTitle(buttonName_1, for: .normal)
+           buttonArray[0].setTitle(buttonName_1, for: .normal)
         }
     }
     
@@ -80,12 +80,8 @@ class CustomSegmentControl: UIView {
         }
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        
-        if isSetuped{ return }
-        isSetuped = true
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
         updateButtonArray()
         addSubview(highlightView)
         self.backgroundColor = mainColor
@@ -93,7 +89,8 @@ class CustomSegmentControl: UIView {
         self.sendSubviewToBack(highlightView)
     }
     
-    private func updateLayout(){
+    override func layoutSubviews() {
+        super.layoutSubviews()
         let (width,height) = getElementSize()
         
         highlightView.frame = CGRect(x: 0, y: 0, width: width , height: height)
@@ -114,7 +111,7 @@ class CustomSegmentControl: UIView {
             button.addTarget(self, action: #selector(self.someAction(_:)), for: .touchUpInside)
             self.bringSubviewToFront(button.titleLabel!)
         }
-        
+        isSetuped = true
     }
     
     private func updateButtonArray(){
@@ -132,7 +129,7 @@ class CustomSegmentControl: UIView {
             }
             
         }
-        updateLayout()
+        layoutIfNeeded()
     }
     
     private func getElementSize() -> (width: CGFloat,height: CGFloat){
