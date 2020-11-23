@@ -10,8 +10,6 @@ import UIKit
 
 @IBDesignable
 class CustomButton: UIButton {
-
-    var isSetuped = false
     
     
     @IBInspectable var borderThinkness: CGFloat = 5 {
@@ -46,9 +44,13 @@ class CustomButton: UIButton {
     
     @IBInspectable var corner: CGFloat = 10 {
         didSet{
-            layoutIfNeeded()
+            self.layer.cornerRadius = corner
         }
     }
+    
+    required init?(coder: NSCoder) {
+           super.init(coder: coder)
+       }
     
     override func layoutSubviews() {
         
