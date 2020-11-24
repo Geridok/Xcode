@@ -62,7 +62,7 @@ class CustomViewController: UIViewController {
     }
      
      func addVC(_ vc: UIViewController, buttonTitle: String) {
-         assert(childs.count < 6, "Too many child ViewControllers: only 6 allowed")
+        assert(childs.count < 6, "Too many child ViewControllers: only 6 allowed")
         childs.append(vc)
         vc.view.isHidden = true
         let button = UIButton()
@@ -82,14 +82,14 @@ class CustomViewController: UIViewController {
             vc.view.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
              vc.view.topAnchor.constraint(equalTo: buttonsStackView.bottomAnchor)
         ])
+        vc.view.translatesAutoresizingMaskIntoConstraints = false
         placeholderVC = vc
         placeholderVC?.view.isHidden = true
      }
      
     @objc private func showHideContentVC(_ sender: UIButton) {
-        //placeholderVC?.view.topAnchor.constraint(equalTo: buttonsStackView.bottomAnchor).isActive = true
         if let index = buttonsStackView.arrangedSubviews.firstIndex(of: sender){
-            if(isHidden[index]){
+            if isHidden[index] {
                 showChildVC(childs[index])
             }else{
                 hideChildVC(childs[index])
@@ -97,18 +97,26 @@ class CustomViewController: UIViewController {
         }
         let op = isHidden.firstIndex(of: false)
         
-        if op == nil{
-            placeholderVC?.view.isHidden = false
+        if op == nil {
+             if let holdView = placeholderVC {
+                self.addChild(holdView)
+                holdView.didMove(toParent: self)
+                holdView.view.isHidden = false
+            }
         }
          // Если все контент контроллеры скрыты, то показываем placeholder
      }
 
      private func showChildVC(_ childVC: UIViewController) {
-        placeholderVC?.view.isHidden = true
+        if let holdView = placeholderVC {
+           holdView.willMove(toParent: self)
+           holdView.view.removeFromSuperview()
+           holdView.view.isHidden = true
+        }
         self.addChild(childVC)
         childVC.didMove(toParent: self)
         childVC.view.isHidden = false
-        childVCStackView.addSubview(childVC.view)
+        childVCStackView.addArrangedSubview(childVC.view)
         if let index = childs.firstIndex(of: childVC){
             isHidden[index] = false
         }
