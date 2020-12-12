@@ -84,35 +84,29 @@ class CustomViewController: UIViewController {
         ])
         vc.view.translatesAutoresizingMaskIntoConstraints = false
         placeholderVC = vc
-        placeholderVC?.view.isHidden = true
+        showChildVC(placeholderVC!)
      }
      
     @objc private func showHideContentVC(_ sender: UIButton) {
         if let index = buttonsStackView.arrangedSubviews.firstIndex(of: sender){
             if isHidden[index] {
+                if let holdView = placeholderVC {
+                    hideChildVC(holdView);
+                }
                 showChildVC(childs[index])
             }else{
                 hideChildVC(childs[index])
             }
         }
-        let op = isHidden.firstIndex(of: false)
-        
-        if op == nil {
+        if isHidden.firstIndex(of: false) == nil {
              if let holdView = placeholderVC {
-                self.addChild(holdView)
-                holdView.didMove(toParent: self)
-                holdView.view.isHidden = false
+                showChildVC(holdView)
             }
         }
          // Если все контент контроллеры скрыты, то показываем placeholder
      }
 
      private func showChildVC(_ childVC: UIViewController) {
-        if let holdView = placeholderVC {
-           holdView.willMove(toParent: self)
-           holdView.view.removeFromSuperview()
-           holdView.view.isHidden = true
-        }
         self.addChild(childVC)
         childVC.didMove(toParent: self)
         childVC.view.isHidden = false
