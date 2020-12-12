@@ -15,7 +15,6 @@ protocol WhichPressedCustomSegmentControlDelegate: NSObjectProtocol {
 @IBDesignable
 class CustomSegmentControl: UIView {
     
-    var isSetuped = false
     var isHorizontal = true
     weak var delegate:WhichPressedCustomSegmentControlDelegate?
     
@@ -38,33 +37,38 @@ class CustomSegmentControl: UIView {
     @IBInspectable var buttonName_1:String = "" {
         didSet{
            buttonArray[0].setTitle(buttonName_1, for: .normal)
+            layoutIfNeeded()
         }
     }
     
     @IBInspectable var buttonName_2:String = "" {
         didSet{
-            buttonArray[1].setTitle(buttonName_1, for: .normal)
+            buttonArray[1].setTitle(buttonName_2, for: .normal)
+            layoutIfNeeded()
         }
     }
     
     @IBInspectable var buttonName_3:String = "" {
         didSet{
             if buttonArray.count >= 3 {
-                buttonArray[3].setTitle(buttonName_1, for: .normal)
+                buttonArray[2].setTitle(buttonName_3, for: .normal)
+                layoutIfNeeded()
             }
         }
     }
     @IBInspectable var buttonName_4:String = "" {
         didSet{
             if buttonArray.count >= 4 {
-                buttonArray[4].setTitle(buttonName_1, for: .normal)
+                buttonArray[3].setTitle(buttonName_4, for: .normal)
+                layoutIfNeeded()
             }
         }
     }
     @IBInspectable var buttonName_5:String = "" {
         didSet{
             if buttonArray.count >= 5 {
-                buttonArray[5].setTitle(buttonName_1, for: .normal)
+                buttonArray[4].setTitle(buttonName_5, for: .normal)
+                layoutIfNeeded()
             }
         }
     }
@@ -79,10 +83,32 @@ class CustomSegmentControl: UIView {
             highlightView.backgroundColor = highlightColor
         }
     }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        updateButtonArray()
+        for (index,button) in buttonArray.enumerated(){
+            button.setTitle(String(index), for: .normal)
+            button.titleLabel?.textColor = .black
+            addSubview(button)
+            button.addTarget(self, action: #selector(self.someAction(_:)), for: .touchUpInside)
+            self.bringSubviewToFront(button.titleLabel!)
+        }
+        addSubview(highlightView)
+        self.backgroundColor = mainColor
+        highlightView.layer.cornerRadius = 10
+        self.sendSubviewToBack(highlightView)
+    }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         updateButtonArray()
+        for (index,button) in buttonArray.enumerated(){
+            button.setTitle(String(index), for: .normal)
+            button.titleLabel?.textColor = .black
+            addSubview(button)
+            button.addTarget(self, action: #selector(self.someAction(_:)), for: .touchUpInside)
+            self.bringSubviewToFront(button.titleLabel!)
+        }
         addSubview(highlightView)
         self.backgroundColor = mainColor
         highlightView.layer.cornerRadius = 10
@@ -103,15 +129,7 @@ class CustomSegmentControl: UIView {
             }else{
                 button.frame = CGRect(x: 0 , y: CGFloat(index)*height, width: width, height: height)
             }
-            if(!isSetuped){
-                button.setTitle(String(index), for: .normal)
-            }
-            button.titleLabel?.textColor = .black
-            addSubview(button)
-            button.addTarget(self, action: #selector(self.someAction(_:)), for: .touchUpInside)
-            self.bringSubviewToFront(button.titleLabel!)
         }
-        isSetuped = true
     }
     
     private func updateButtonArray(){
