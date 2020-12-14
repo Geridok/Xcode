@@ -10,8 +10,6 @@ import UIKit
 
 class CustomViewController: UIViewController {
     
-    var isHidden = [Bool](repeating: true, count: 6)
-    
     private var buttonsStackView: UIStackView = {
         let buttonsStackView = UIStackView()
         buttonsStackView.axis  = NSLayoutConstraint.Axis.horizontal
@@ -64,13 +62,12 @@ class CustomViewController: UIViewController {
      func addVC(_ vc: UIViewController, buttonTitle: String) {
         assert(childs.count < 6, "Too many child ViewControllers: only 6 allowed")
         childs.append(vc)
-        vc.view.isHidden = true
         let button = UIButton()
         button.addTarget(self, action: #selector(showHideContentVC(_:)), for: .touchUpInside)
         button.setTitle( buttonTitle, for: .normal)
         button.setTitleColor(.black, for: .normal)
+        button.setTitleColor(.white, for: .selected)
         buttonsStackView.addArrangedSubview(button)
-        
          // Сохраняем контроллер (но не показываем), создаем кнопку, показываем кнопку.
      }
      
@@ -89,7 +86,8 @@ class CustomViewController: UIViewController {
      
     @objc private func showHideContentVC(_ sender: UIButton) {
         if let index = buttonsStackView.arrangedSubviews.firstIndex(of: sender){
-            if isHidden[index] {
+            sender.isSelected.toggle()
+            if sender.isSelected {
                 if let holdView = placeholderVC {
                     hideChildVC(holdView);
                 }
@@ -98,22 +96,19 @@ class CustomViewController: UIViewController {
                 hideChildVC(childs[index])
             }
         }
-        if isHidden.firstIndex(of: false) == nil {
-             if let holdView = placeholderVC {
-                showChildVC(holdView)
-            }
+        if childVCStackView.arrangedSubviews.firstIndex(where: {$0.isHidden == false} ) == nil {
+            if let holdView = placeholderVC {
+               showChildVC(holdView)
+           }
         }
-         // Если все контент контроллеры скрыты, то показываем placeholder
      }
 
      private func showChildVC(_ childVC: UIViewController) {
         self.addChild(childVC)
+        let index = getCorrectPlace(childVC)
         childVC.didMove(toParent: self)
         childVC.view.isHidden = false
-        childVCStackView.addArrangedSubview(childVC.view)
-        if let index = childs.firstIndex(of: childVC){
-            isHidden[index] = false
-        }
+        childVCStackView.insertArrangedSubview(childVC.view, at: index)
          // Функция для добавления контроллера в иерархию и его показа
      }
      
@@ -122,10 +117,19 @@ class CustomViewController: UIViewController {
         childVC.view.removeFromSuperview()
         childVC.removeFromParent()
         childVC.view.isHidden = true
-        if let index = childs.firstIndex(of: childVC){
-            isHidden[index] = true
-        }
      }
     
+    private func getCorrectPlace(_ view: UIViewController) -> Array<UIViewController>.Index {
+        let indexViewInOrder = childs.firstIndex(of: view) ?? 0
+        if let indexVisibleView = childVCStackView.arrangedSubviews.lastIndex(where: {$0.isHidden == false}){
+            if indexVisibleView + 1 < indexViewInOrder {
+                return indexVisibleView + 1
+            }else{
+                return indexViewInOrder
+            }
+        }else{
+            return 0
+        }
+    }
 }
 
