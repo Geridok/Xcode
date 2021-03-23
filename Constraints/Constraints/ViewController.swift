@@ -19,6 +19,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureEnd))
             self.view.addGestureRecognizer(tapGesture)
+    
         }
         
     @objc func tapGestureEnd(){
