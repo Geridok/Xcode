@@ -1,0 +1,13 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '10.0'
+use_frameworks!
+
+target 'Json Parsing' do
+
+pod 'Alamofire', '~> 5.2'
+pod 'SVProgressHUD'
+pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
+pod 'SwiftyJSON', '~> 4.0'
+
+end
