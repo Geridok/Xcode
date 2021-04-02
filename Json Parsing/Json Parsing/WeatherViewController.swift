@@ -93,7 +93,7 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource{
         }else{
             let cell = tableView.dequeueReusableCell(withIdentifier: DailyTableViewCell.identifier, for: indexPath) as! DailyTableViewCell
             cell.configure(dayWheatherInfo: dayInfo[indexPath.row - 1] )
-            
+            cell.selectionStyle = . none
             return cell
             
         }
