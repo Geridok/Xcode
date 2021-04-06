@@ -23,12 +23,15 @@ class BurgerCustomTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        generateBurgersImages()
+        //generateBurgersImages()
         descriptionLabel.text = "Какое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описаниеКакое-то описание"
         informationScrollView.clipsToBounds = true
         informationScrollView.layer.cornerRadius = 15
     }
-    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        generateBurgersImages()
+    }
 
     private func generateBurgersImages(){
         for (index,image) in burgerImages.enumerated() {
