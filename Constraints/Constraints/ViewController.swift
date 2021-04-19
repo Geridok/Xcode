@@ -17,12 +17,25 @@ class ViewController: UIViewController {
     @IBOutlet weak var toLabel: UILabel?
     @IBOutlet weak var bottomLabel: UILabel?
     
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapGestureEnd))
+            self.view.addGestureRecognizer(tapGesture)
+    
+        }
+        
+    @objc func tapGestureEnd(){
+            view.endEditing(true)
+        }
+
     var isFromBig = false
     var isToBig = false
     
     @IBAction func showHideImage() {
         imageView?.isHidden.toggle()
     }
+
 
     @IBAction func showHideBottomLabel() {
         bottomLabel?.isHidden.toggle()
