@@ -16,10 +16,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zeK-yh-NTJ">
-                                <rect key="frame" x="0.0" y="44" width="414" height="272.5"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
-                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" spacing="108" translatesAutoresizingMaskIntoConstraints="NO" id="L0L-1t-Obn">
                                 <rect key="frame" x="20" y="802" width="374" height="30"/>
                                 <subviews>
@@ -53,21 +49,27 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KlE-Rf-WK4">
+                                <rect key="frame" x="299" y="762" width="95" height="30"/>
+                                <state key="normal" title="Start Rotation">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startOrStopRotating:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TqM-Wt-ENN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="zeK-yh-NTJ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="3Pr-Hf-2vJ"/>
-                            <constraint firstItem="zeK-yh-NTJ" firstAttribute="height" secondItem="6Tk-OE-BBY" secondAttribute="height" multiplier="1:3" id="R55-vd-qpD"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KlE-Rf-WK4" secondAttribute="trailing" constant="20" id="Gf4-Bx-Enw"/>
+                            <constraint firstItem="L0L-1t-Obn" firstAttribute="top" secondItem="KlE-Rf-WK4" secondAttribute="bottom" constant="10" id="Sc2-3a-W2F"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="L0L-1t-Obn" secondAttribute="bottom" constant="30" id="Uub-GI-ftI"/>
                             <constraint firstItem="L0L-1t-Obn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="YlY-A9-eFa"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="zeK-yh-NTJ" secondAttribute="trailing" id="gra-cu-6xn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="L0L-1t-Obn" secondAttribute="trailing" constant="20" id="r0w-Gx-VhD"/>
-                            <constraint firstItem="zeK-yh-NTJ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vmG-Lo-cYr"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="animatableView" destination="zeK-yh-NTJ" id="ddb-N0-PIF"/>
                         <outlet property="animationIndexlabel" destination="8Fv-Tt-A3E" id="lLB-Vx-85Q"/>
                         <outlet property="nextButton" destination="VTn-nV-rwb" id="Vcd-Uk-rDh"/>
                         <outlet property="previousButton" destination="CoT-lY-d6D" id="WTX-AV-DNf"/>
@@ -87,9 +89,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
