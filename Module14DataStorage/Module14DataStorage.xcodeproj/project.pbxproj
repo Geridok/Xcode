@@ -1,0 +1,635 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		563A0DB75A6BBE571BD50B3C /* Pods_Module14DataStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4D298B9A60AB376CBF38DC0B /* Pods_Module14DataStorage.framework */; };
+		E73978EC262D4F3600EF0454 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73978EB262D4F3600EF0454 /* AppDelegate.swift */; };
+		E73978EE262D4F3600EF0454 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73978ED262D4F3600EF0454 /* SceneDelegate.swift */; };
+		E73978F0262D4F3600EF0454 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E73978EF262D4F3600EF0454 /* ViewController.swift */; };
+		E73978F3262D4F3600EF0454 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E73978F1262D4F3600EF0454 /* Main.storyboard */; };
+		E73978F5262D4F3900EF0454 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E73978F4262D4F3900EF0454 /* Assets.xcassets */; };
+		E73978F8262D4F3900EF0454 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E73978F6262D4F3900EF0454 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E73978FF262D4F3900EF0454 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E73978E0262D4F3600EF0454 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E73978E7262D4F3600EF0454;
+			remoteInfo = Module14DataStorage;
+		};
+		E739790A262D4F3900EF0454 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E73978E0262D4F3600EF0454 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E73978E7262D4F3600EF0454;
+			remoteInfo = Module14DataStorage;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4D298B9A60AB376CBF38DC0B /* Pods_Module14DataStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Module14DataStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		651903F1A8B562FCEAB7B4C6 /* Pods-Module14DataStorage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Module14DataStorage.release.xcconfig"; path = "Target Support Files/Pods-Module14DataStorage/Pods-Module14DataStorage.release.xcconfig"; sourceTree = "<group>"; };
+		76BEA1ED73CFE4A372C00DCE /* Pods-Module14DataStorage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Module14DataStorage.debug.xcconfig"; path = "Target Support Files/Pods-Module14DataStorage/Pods-Module14DataStorage.debug.xcconfig"; sourceTree = "<group>"; };
+		E73978E8262D4F3600EF0454 /* Module14DataStorage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Module14DataStorage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E73978EB262D4F3600EF0454 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E73978ED262D4F3600EF0454 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		E73978EF262D4F3600EF0454 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E73978F2262D4F3600EF0454 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E73978F4262D4F3900EF0454 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E73978F7262D4F3900EF0454 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E73978F9262D4F3900EF0454 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E73978FE262D4F3900EF0454 /* Module14DataStorageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Module14DataStorageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E7397909262D4F3900EF0454 /* Module14DataStorageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Module14DataStorageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E73978E5262D4F3600EF0454 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				563A0DB75A6BBE571BD50B3C /* Pods_Module14DataStorage.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E73978FB262D4F3900EF0454 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7397906262D4F3900EF0454 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		53BEFB470EFF617E6926E08F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				76BEA1ED73CFE4A372C00DCE /* Pods-Module14DataStorage.debug.xcconfig */,
+				651903F1A8B562FCEAB7B4C6 /* Pods-Module14DataStorage.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9C3F8FCBAF3E1E1276514467 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4D298B9A60AB376CBF38DC0B /* Pods_Module14DataStorage.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E73978DF262D4F3600EF0454 = {
+			isa = PBXGroup;
+			children = (
+				E73978EA262D4F3600EF0454 /* Module14DataStorage */,
+				E73978E9262D4F3600EF0454 /* Products */,
+				53BEFB470EFF617E6926E08F /* Pods */,
+				9C3F8FCBAF3E1E1276514467 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E73978E9262D4F3600EF0454 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E73978E8262D4F3600EF0454 /* Module14DataStorage.app */,
+				E73978FE262D4F3900EF0454 /* Module14DataStorageTests.xctest */,
+				E7397909262D4F3900EF0454 /* Module14DataStorageUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E73978EA262D4F3600EF0454 /* Module14DataStorage */ = {
+			isa = PBXGroup;
+			children = (
+				E73978EB262D4F3600EF0454 /* AppDelegate.swift */,
+				E73978ED262D4F3600EF0454 /* SceneDelegate.swift */,
+				E73978EF262D4F3600EF0454 /* ViewController.swift */,
+				E73978F1262D4F3600EF0454 /* Main.storyboard */,
+				E73978F4262D4F3900EF0454 /* Assets.xcassets */,
+				E73978F6262D4F3900EF0454 /* LaunchScreen.storyboard */,
+				E73978F9262D4F3900EF0454 /* Info.plist */,
+			);
+			path = Module14DataStorage;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E73978E7262D4F3600EF0454 /* Module14DataStorage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7397912262D4F3900EF0454 /* Build configuration list for PBXNativeTarget "Module14DataStorage" */;
+			buildPhases = (
+				9A2B15F9CA550EED792F48A4 /* [CP] Check Pods Manifest.lock */,
+				E73978E4262D4F3600EF0454 /* Sources */,
+				E73978E5262D4F3600EF0454 /* Frameworks */,
+				E73978E6262D4F3600EF0454 /* Resources */,
+				59C18041D20634D007DE66A4 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Module14DataStorage;
+			productName = Module14DataStorage;
+			productReference = E73978E8262D4F3600EF0454 /* Module14DataStorage.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E73978FD262D4F3900EF0454 /* Module14DataStorageTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7397915262D4F3900EF0454 /* Build configuration list for PBXNativeTarget "Module14DataStorageTests" */;
+			buildPhases = (
+				E73978FA262D4F3900EF0454 /* Sources */,
+				E73978FB262D4F3900EF0454 /* Frameworks */,
+				E73978FC262D4F3900EF0454 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E7397900262D4F3900EF0454 /* PBXTargetDependency */,
+			);
+			name = Module14DataStorageTests;
+			productName = Module14DataStorageTests;
+			productReference = E73978FE262D4F3900EF0454 /* Module14DataStorageTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E7397908262D4F3900EF0454 /* Module14DataStorageUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E7397918262D4F3900EF0454 /* Build configuration list for PBXNativeTarget "Module14DataStorageUITests" */;
+			buildPhases = (
+				E7397905262D4F3900EF0454 /* Sources */,
+				E7397906262D4F3900EF0454 /* Frameworks */,
+				E7397907262D4F3900EF0454 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E739790B262D4F3900EF0454 /* PBXTargetDependency */,
+			);
+			name = Module14DataStorageUITests;
+			productName = Module14DataStorageUITests;
+			productReference = E7397909262D4F3900EF0454 /* Module14DataStorageUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E73978E0262D4F3600EF0454 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+				TargetAttributes = {
+					E73978E7262D4F3600EF0454 = {
+						CreatedOnToolsVersion = 12.4;
+					};
+					E73978FD262D4F3900EF0454 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = E73978E7262D4F3600EF0454;
+					};
+					E7397908262D4F3900EF0454 = {
+						CreatedOnToolsVersion = 12.4;
+						TestTargetID = E73978E7262D4F3600EF0454;
+					};
+				};
+			};
+			buildConfigurationList = E73978E3262D4F3600EF0454 /* Build configuration list for PBXProject "Module14DataStorage" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E73978DF262D4F3600EF0454;
+			productRefGroup = E73978E9262D4F3600EF0454 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E73978E7262D4F3600EF0454 /* Module14DataStorage */,
+				E73978FD262D4F3900EF0454 /* Module14DataStorageTests */,
+				E7397908262D4F3900EF0454 /* Module14DataStorageUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E73978E6262D4F3600EF0454 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E73978F8262D4F3900EF0454 /* LaunchScreen.storyboard in Resources */,
+				E73978F5262D4F3900EF0454 /* Assets.xcassets in Resources */,
+				E73978F3262D4F3600EF0454 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E73978FC262D4F3900EF0454 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7397907262D4F3900EF0454 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		59C18041D20634D007DE66A4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Module14DataStorage/Pods-Module14DataStorage-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Module14DataStorage/Pods-Module14DataStorage-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Module14DataStorage/Pods-Module14DataStorage-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A2B15F9CA550EED792F48A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Module14DataStorage-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E73978E4262D4F3600EF0454 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E73978F0262D4F3600EF0454 /* ViewController.swift in Sources */,
+				E73978EC262D4F3600EF0454 /* AppDelegate.swift in Sources */,
+				E73978EE262D4F3600EF0454 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E73978FA262D4F3900EF0454 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E7397905262D4F3900EF0454 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E7397900262D4F3900EF0454 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E73978E7262D4F3600EF0454 /* Module14DataStorage */;
+			targetProxy = E73978FF262D4F3900EF0454 /* PBXContainerItemProxy */;
+		};
+		E739790B262D4F3900EF0454 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E73978E7262D4F3600EF0454 /* Module14DataStorage */;
+			targetProxy = E739790A262D4F3900EF0454 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E73978F1262D4F3600EF0454 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E73978F2262D4F3600EF0454 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E73978F6262D4F3900EF0454 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E73978F7262D4F3900EF0454 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E7397910262D4F3900EF0454 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E7397911262D4F3900EF0454 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E7397913262D4F3900EF0454 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 76BEA1ED73CFE4A372C00DCE /* Pods-Module14DataStorage.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Module14DataStorage/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = MuVir.Module14DataStorage;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E7397914262D4F3900EF0454 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 651903F1A8B562FCEAB7B4C6 /* Pods-Module14DataStorage.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Module14DataStorage/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = MuVir.Module14DataStorage;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E7397916262D4F3900EF0454 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Module14DataStorageTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = MuVir.Module14DataStorageTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Module14DataStorage.app/Module14DataStorage";
+			};
+			name = Debug;
+		};
+		E7397917262D4F3900EF0454 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Module14DataStorageTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = MuVir.Module14DataStorageTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Module14DataStorage.app/Module14DataStorage";
+			};
+			name = Release;
+		};
+		E7397919262D4F3900EF0454 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Module14DataStorageUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = MuVir.Module14DataStorageUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Module14DataStorage;
+			};
+			name = Debug;
+		};
+		E739791A262D4F3900EF0454 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Module14DataStorageUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = MuVir.Module14DataStorageUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Module14DataStorage;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E73978E3262D4F3600EF0454 /* Build configuration list for PBXProject "Module14DataStorage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7397910262D4F3900EF0454 /* Debug */,
+				E7397911262D4F3900EF0454 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7397912262D4F3900EF0454 /* Build configuration list for PBXNativeTarget "Module14DataStorage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7397913262D4F3900EF0454 /* Debug */,
+				E7397914262D4F3900EF0454 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7397915262D4F3900EF0454 /* Build configuration list for PBXNativeTarget "Module14DataStorageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7397916262D4F3900EF0454 /* Debug */,
+				E7397917262D4F3900EF0454 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E7397918262D4F3900EF0454 /* Build configuration list for PBXNativeTarget "Module14DataStorageUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E7397919262D4F3900EF0454 /* Debug */,
+				E739791A262D4F3900EF0454 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E73978E0262D4F3600EF0454 /* Project object */;
+}
