@@ -7,15 +7,16 @@
 
 import UIKit
 import Spring
+import RealmSwift
 
-struct DayInfo {
-    var dayName: String
-    var date: String
-    var weatherIcon: UIImage
-    var maxTemp: String
-    var minTemp: String
+class DayInfo:Object {
+    @objc dynamic var dayName: String = ""
+    @objc dynamic var date: String = ""
+    var weatherIcon: UIImage?
+    @objc dynamic var maxTemp: String = ""
+    @objc dynamic var minTemp: String = ""
     
-    init?(data: NSDictionary, timeZoneOffset: Double) {
+    func ini(data: NSDictionary, timeZoneOffset: Double)->Self? {
         guard let timeUnix = data["dt"] as? Double, let tempDict = data["temp"] as? NSDictionary, let weatherInfo = data["weather"] as? NSArray else {
             return nil
         }
@@ -51,6 +52,7 @@ struct DayInfo {
             self.weatherIcon = UIImage(data: data) ?? UIImage(named: "sun")!
         }else{ return nil }
         }else{ return nil}
+        return self
     }
 }
 

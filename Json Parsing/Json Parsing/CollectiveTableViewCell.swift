@@ -7,13 +7,15 @@
 
 import UIKit
 import Spring
+import RealmSwift
 
-class HourlyWeather {
-    var weatherIcon: UIImage
-    var tempText: String
-    var timeText: String
+
+class HourlyWeather: Object {
+    var weatherIcon: UIImage?
+    @objc dynamic var tempText: String = ""
+    @objc dynamic var timeText: String = ""
     
-    init?(data: NSDictionary, timeZoneOffset: Double) {
+    func ini(data: NSDictionary, timeZoneOffset: Double)->Self? {
         guard let timeUnix = data["dt"] as? Double, let temp = data["temp"] as? Double, let weatherInfo = data["weather"] as? NSArray else {
             return nil
         }
@@ -46,6 +48,7 @@ class HourlyWeather {
             self.weatherIcon = UIImage(data: data) ?? UIImage(named: "sun")!
         }else{ return nil }
         }else{ return nil}
+        return self
     }
     
     

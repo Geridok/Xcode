@@ -10,7 +10,6 @@ import SVProgressHUD
 class StubViewController: UIViewController {
 
     var weatherLoaderAlamFire: WeatherLoader?
-    var weatherLoaderStandart: WeatherLoaderStandart?
     
     var isHourlyWeatherLoaded = false
     var isDailyWheatherLoaded = false
@@ -23,7 +22,7 @@ class StubViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        print("Hi!")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,15 +32,9 @@ class StubViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        if(parseType){
-            weatherLoaderStandart = WeatherLoaderStandart()
-            weatherLoaderStandart?.delegat = self
-            weatherLoaderStandart?.UpdateDataForPlace(place: currentPlaceName)
-        }else{
             weatherLoaderAlamFire = WeatherLoader()
             weatherLoaderAlamFire?.delegat = self
             weatherLoaderAlamFire?.updateDataForPlace(place: currentPlaceName)
-        }
     }
 
     func segue(){
@@ -59,16 +52,11 @@ class StubViewController: UIViewController {
         destinationViewController.modalPresentationStyle = .fullScreen
         destinationViewController.stubDelegate = self
         destinationViewController.currentPlaceName = currentPlaceName
-        if(parseType){
-            destinationViewController.currentWeather = weatherLoaderStandart!.currentWeather
-            destinationViewController.hourlyWeather = weatherLoaderStandart!.hourlyWeather
-            destinationViewController.dayInfo = weatherLoaderStandart!.dayInfo
-        } else{
-            destinationViewController.currentWeather = weatherLoaderAlamFire!.currentWeather
-            destinationViewController.hourlyWeather = weatherLoaderAlamFire!.hourlyWeather
-            destinationViewController.dayInfo = weatherLoaderAlamFire!.dayInfo
+
+        destinationViewController.currentWeather = weatherLoaderAlamFire!.currentWeather
+        destinationViewController.hourlyWeather = weatherLoaderAlamFire!.hourlyWeather
+        destinationViewController.dayInfo = weatherLoaderAlamFire!.dayInfo
             
-        }
         SVProgressHUD.dismiss()
         present(destinationViewController, animated: true, completion: nil)
     }
@@ -102,9 +90,7 @@ extension StubViewController: WeatherLoaderDelegate{
 
 
 extension StubViewController: StubDelegate{
-    func changeParseType() {
-        parseType.toggle()
-    }
+    
     
     func changePlaceName(place: String) {
         currentPlaceName = place

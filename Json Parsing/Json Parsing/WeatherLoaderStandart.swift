@@ -17,7 +17,7 @@ class WeatherLoaderStandart{
 
     var dayInfo: [DayInfo] = []
     
-    func UpdateDataForPlace(place: String){
+    func updateDataForPlace(place: String){
 
         let instanse = Singleton.placesInfo
 

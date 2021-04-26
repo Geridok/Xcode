@@ -8,17 +8,18 @@
 import Foundation
 import UIKit
 import Spring
+import RealmSwift
 
-class CurrentWeather {
-    var wind: String
-    var pressure:String
-    var humidity:String
-    var currentTemp: String
-    var weatherDescription: String
-    var weatherFeelLike: String
-    var weatherIcon: UIImage
+class CurrentWeather:Object {
+    @objc dynamic var wind: String = ""
+    @objc dynamic var pressure:String = ""
+    @objc dynamic var humidity:String = ""
+    @objc dynamic var currentTemp: String = ""
+    @objc dynamic var weatherDescription: String = ""
+    @objc dynamic var weatherFeelLike: String = ""
+    var weatherIcon: UIImage?
     
-    init?(data: NSDictionary) {
+    func ini(data: NSDictionary)->Self? {
         guard let tempDict = data["main"] as? NSDictionary, let weatherInfo = data["weather"] as? NSArray else {
             return nil
         }
@@ -46,12 +47,13 @@ class CurrentWeather {
             self.weatherIcon = UIImage(data: data) ?? UIImage(named: "sun")!
         }else{ return nil }
         }else{ return nil }
+        return self
     }
 }
 
 protocol CurrentWeatherInfoDelegate: AnyObject {
     func setNewCity(newCity: String)
-    func changeParseType()
+    func refreshData()
 }
 
 class CurrentWeatherInfoView: SpringView{
@@ -65,6 +67,7 @@ class CurrentWeatherInfoView: SpringView{
     @IBOutlet weak var mainInfoStackView: UIStackView!
     @IBOutlet weak var placePicker: UIPickerView!
     @IBOutlet weak var changeParseTypeButton: SpringButton!
+    @IBOutlet weak var RefreshIcon: UIImageView!
     
     weak var delegate: CurrentWeatherInfoDelegate?
 
@@ -72,10 +75,6 @@ class CurrentWeatherInfoView: SpringView{
     static func loadFromXib() -> CurrentWeatherInfoView {
         let xib = UINib(nibName: "CurrentWeatherInfoView", bundle: nil)
         return xib.instantiate(withOwner: self, options: nil).first as! CurrentWeatherInfoView
-    }
-    
-    @IBAction func changeParseType(_ sender: SpringButton) {
-        delegate?.changeParseType()
     }
     
     func configure(cities: [String],currentWeather: CurrentWeather){
@@ -99,12 +98,6 @@ class CurrentWeatherInfoView: SpringView{
         
         let window = UIApplication.shared.windows[0]
         
-        changeParseTypeButton.frame = CGRect(x: self.frame.width - 130, y: 5, width: 120, height: 20)
-        
-        changeParseTypeButton.backgroundColor = .clear
-        changeParseTypeButton.layer.cornerRadius = 5
-        changeParseTypeButton.layer.borderWidth = 1
-        changeParseTypeButton.layer.borderColor = UIColor.black.cgColor
         
         //data
         var stackView = mainInfoStackView.arrangedSubviews[0] as! UIStackView
@@ -151,6 +144,7 @@ extension CurrentWeatherInfoView: UIPickerViewDataSource, UIPickerViewDelegate{
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         delegate?.setNewCity(newCity: cities[row])
+        print("complete")
         // This method is triggered whenever the user makes a change to the picker selection.
         // The parameter named row and component represents what was selected.
     }

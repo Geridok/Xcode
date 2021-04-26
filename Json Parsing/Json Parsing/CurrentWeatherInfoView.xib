@@ -228,33 +228,21 @@
                     <rect key="frame" x="0.0" y="204" width="390" height="74"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                 </pickerView>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hgp-Ze-Hm3" customClass="SpringButton" customModule="Spring">
-                    <rect key="frame" x="283" y="0.0" width="107" height="27"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                    <state key="normal" title="Сhange parse type">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </state>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
-                        <userDefinedRuntimeAttribute type="number" keyPath="repeatCount">
-                            <real key="value" value="6"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="string" keyPath="animation" value="pop"/>
-                        <userDefinedRuntimeAttribute type="number" keyPath="delay">
-                            <real key="value" value="0.5"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <action selector="changeParseType:" destination="iN0-l3-epB" eventType="touchUpInside" id="jJ4-99-Ip8"/>
-                    </connections>
-                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkF-S6-ztE">
+                    <rect key="frame" x="348.5" y="0.0" width="41.5" height="20.5"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" red="0.66666666666666663" green="1" blue="1" alpha="0.74802105305451705" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="xkF-S6-ztE" secondAttribute="trailing" id="HBr-eS-Eta"/>
+                <constraint firstItem="xkF-S6-ztE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="izf-G7-ECb"/>
+            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="changeParseTypeButton" destination="Hgp-Ze-Hm3" id="Ctw-LN-4Uo"/>
                 <outlet property="mainInfoStackView" destination="0Uu-QR-yJz" id="1Xi-Ff-4Up"/>
                 <outlet property="otherInfoStackView" destination="rxb-J7-Vlb" id="yKH-SS-cmE"/>
                 <outlet property="placePicker" destination="mgH-Xb-OJ4" id="G99-o7-ffc"/>
