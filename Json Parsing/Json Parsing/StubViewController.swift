@@ -7,6 +7,8 @@
 
 import UIKit
 import SVProgressHUD
+import RealmSwift
+
 class StubViewController: UIViewController {
 
     var weatherLoaderAlamFire: WeatherLoader?
@@ -14,11 +16,13 @@ class StubViewController: UIViewController {
     var isHourlyWeatherLoaded = false
     var isDailyWheatherLoaded = false
     var isCurrentWeatherLoaded = false
+    private let realm_ = try! Realm()
+    
+    
+    let dataStorage = Persistance.shared
     
     var currentPlaceName = "Moscow"
     
-    // false - alamFire, true - standart method
-    var parseType = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +63,22 @@ class StubViewController: UIViewController {
             
         SVProgressHUD.dismiss()
         present(destinationViewController, animated: true, completion: nil)
+        
+        test(currentWeather: weatherLoaderAlamFire!.currentWeather)
+//        dataStorage.updateData(currentWeather: weatherLoaderAlamFire!.currentWeather, hourlyWeather: weatherLoaderAlamFire!.hourlyWeather, dailyWeather: weatherLoaderAlamFire!.dayInfo, currentCity: currentPlaceName)
+//
+//        let op = dataStorage.getData()
+//
+//        let op2 = 2
+        
+    }
+    private func test(currentWeather: CurrentWeather){
+        
+        let weatherData = realm_.objects(CurrentWeather.self).first ?? nil
+        let op = 2
+//        try! realm_.write{
+//            realm_.add(currentWeather)
+//        }
     }
 }
 

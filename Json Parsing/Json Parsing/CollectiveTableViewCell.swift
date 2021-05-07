@@ -11,9 +11,11 @@ import RealmSwift
 
 
 class HourlyWeather: Object {
-    var weatherIcon: UIImage?
     @objc dynamic var tempText: String = ""
     @objc dynamic var timeText: String = ""
+    @objc dynamic var imageName:String = ""
+    
+    var weatherIcon: UIImage?
     
     func ini(data: NSDictionary, timeZoneOffset: Double)->Self? {
         guard let timeUnix = data["dt"] as? Double, let temp = data["temp"] as? Double, let weatherInfo = data["weather"] as? NSArray else {
@@ -40,6 +42,8 @@ class HourlyWeather: Object {
         guard let iconName = weatherDict["icon"] as? String else {
             return nil
         }
+        
+        imageName = iconName
         
         let iconRequest = WeatherRequests.icon + iconName + RequestParam.iconEnd
         

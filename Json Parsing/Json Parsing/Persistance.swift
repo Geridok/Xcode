@@ -9,10 +9,10 @@ import Foundation
 import RealmSwift
 
 class WeatherData: Object{
-    @objc dynamic var currentWeather: CurrentWeather?
-    @objc dynamic var hourlyWeather: [HourlyWeather]?
-    @objc dynamic var dailyWeather: [DayInfo]?
-    @objc dynamic var currentCity: String?
+    var currentWeather: CurrentWeather?
+    var hourlyWeather: [HourlyWeather] = []
+    var dailyWeather: [DayInfo] = []
+    @objc dynamic var currentCity: String = ""
     @objc dynamic var date:String = {
         let data = Date()
         let dayTimePeriodFormatter = DateFormatter()
@@ -66,14 +66,14 @@ class Persistance {
             try! realm.write{
                 realm.delete(weatherData)
             }
-            try! realm.write{
-                let newWeatherData = WeatherData()
-                newWeatherData.currentWeather = currentWeather
-                newWeatherData.hourlyWeather = hourlyWeather
-                newWeatherData.dailyWeather = dailyWeather
-                newWeatherData.currentCity = currentCity
-                realm.add(newWeatherData)
-            }
+        }
+        try! realm.write{
+            let newWeatherData = WeatherData()
+            newWeatherData.currentWeather = currentWeather
+            newWeatherData.hourlyWeather = hourlyWeather
+            newWeatherData.dailyWeather = dailyWeather
+            newWeatherData.currentCity = currentCity
+            realm.add(newWeatherData)
         }
     }
 }

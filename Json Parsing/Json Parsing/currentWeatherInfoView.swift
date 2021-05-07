@@ -66,8 +66,6 @@ class CurrentWeatherInfoView: SpringView{
     @IBOutlet weak var otherInfoStackView: UIStackView!
     @IBOutlet weak var mainInfoStackView: UIStackView!
     @IBOutlet weak var placePicker: UIPickerView!
-    @IBOutlet weak var changeParseTypeButton: SpringButton!
-    @IBOutlet weak var RefreshIcon: UIImageView!
     
     weak var delegate: CurrentWeatherInfoDelegate?
 
@@ -95,8 +93,6 @@ class CurrentWeatherInfoView: SpringView{
         placePicker.frame = CGRect(x: 0, y: placePickerY - 50, width: self.frame.width, height: 100)
         
         placePicker.reloadAllComponents()
-        
-        let window = UIApplication.shared.windows[0]
         
         
         //data
