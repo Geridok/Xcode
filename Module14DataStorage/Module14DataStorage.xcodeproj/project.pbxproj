@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		E73978F3262D4F3600EF0454 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E73978F1262D4F3600EF0454 /* Main.storyboard */; };
 		E73978F5262D4F3900EF0454 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E73978F4262D4F3900EF0454 /* Assets.xcassets */; };
 		E73978F8262D4F3900EF0454 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E73978F6262D4F3900EF0454 /* LaunchScreen.storyboard */; };
+		E745A4822644F65800098F4C /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E745A4812644F65700098F4C /* Persistance.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		E73978F9262D4F3900EF0454 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E73978FE262D4F3900EF0454 /* Module14DataStorageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Module14DataStorageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7397909262D4F3900EF0454 /* Module14DataStorageUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Module14DataStorageUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E745A4812644F65700098F4C /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +83,6 @@
 				76BEA1ED73CFE4A372C00DCE /* Pods-Module14DataStorage.debug.xcconfig */,
 				651903F1A8B562FCEAB7B4C6 /* Pods-Module14DataStorage.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -123,6 +124,7 @@
 				E73978F4262D4F3900EF0454 /* Assets.xcassets */,
 				E73978F6262D4F3900EF0454 /* LaunchScreen.storyboard */,
 				E73978F9262D4F3900EF0454 /* Info.plist */,
+				E745A4812644F65700098F4C /* Persistance.swift */,
 			);
 			path = Module14DataStorage;
 			sourceTree = "<group>";
@@ -302,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E73978F0262D4F3600EF0454 /* ViewController.swift in Sources */,
+				E745A4822644F65800098F4C /* Persistance.swift in Sources */,
 				E73978EC262D4F3600EF0454 /* AppDelegate.swift in Sources */,
 				E73978EE262D4F3600EF0454 /* SceneDelegate.swift in Sources */,
 			);

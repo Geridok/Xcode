@@ -11,7 +11,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let dataStorage = Persistance.shared
+        
+        dataStorage.updateData(string: "testString")
+        
+        let data = dataStorage.getData()
+        
+        let str = data?.str
+        
     }
 
 
