@@ -12,7 +12,7 @@ import RealmSwift
 class DayInfo:Object {
     @objc dynamic var dayName: String = ""
     @objc dynamic var date: String = ""
-    var weatherIcon: UIImage?
+    var weatherIcon: UIImage? = UIImage(named: "sun")
     @objc dynamic var maxTemp: String = ""
     @objc dynamic var minTemp: String = ""
     

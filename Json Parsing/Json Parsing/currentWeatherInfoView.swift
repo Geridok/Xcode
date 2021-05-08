@@ -17,7 +17,7 @@ class CurrentWeather:Object {
     @objc dynamic var currentTemp: String = ""
     @objc dynamic var weatherDescription: String = ""
     @objc dynamic var weatherFeelLike: String = ""
-    var weatherIcon: UIImage?
+    var weatherIcon: UIImage? = UIImage(named: "sun")
     
     func ini(data: NSDictionary)->Self? {
         guard let tempDict = data["main"] as? NSDictionary, let weatherInfo = data["weather"] as? NSArray else {

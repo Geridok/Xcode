@@ -15,7 +15,7 @@ class HourlyWeather: Object {
     @objc dynamic var timeText: String = ""
     @objc dynamic var imageName:String = ""
     
-    var weatherIcon: UIImage?
+    var weatherIcon: UIImage? = UIImage(named: "sun")
     
     func ini(data: NSDictionary, timeZoneOffset: Double)->Self? {
         guard let timeUnix = data["dt"] as? Double, let temp = data["temp"] as? Double, let weatherInfo = data["weather"] as? NSArray else {

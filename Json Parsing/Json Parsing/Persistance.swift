@@ -12,7 +12,7 @@ class WeatherData: Object{
     var currentWeather: CurrentWeather?
     var hourlyWeather: [HourlyWeather] = []
     var dailyWeather: [DayInfo] = []
-    @objc dynamic var currentCity: String = ""
+    @objc dynamic var currentPlaceName: String = ""
     @objc dynamic var date:String = {
         let data = Date()
         let dayTimePeriodFormatter = DateFormatter()
@@ -57,7 +57,18 @@ class Persistance {
     private let realm = try! Realm()
     
     func getData() -> WeatherData?{
+        
+        let currentWeather = realm.objects(CurrentWeather.self).first ?? nil
+        let hourlyWeather = realm.objects(HourlyWeather.self)
+        let dailyWeather = realm.objects(DayInfo.self)
         let weatherData = realm.objects(WeatherData.self).first ?? nil
+        weatherData?.currentWeather = currentWeather
+        for(value) in dailyWeather{
+            weatherData?.dailyWeather.append(value)
+        }
+        for(value) in hourlyWeather{
+            weatherData?.hourlyWeather.append(value)
+        }
         return weatherData
     }
     
@@ -65,15 +76,29 @@ class Persistance {
         if let weatherData = self.getData(){
             try! realm.write{
                 realm.delete(weatherData)
+                if let currentWeather = weatherData.currentWeather{
+                    realm.delete(currentWeather)
+                }
+            
+                for(value) in weatherData.hourlyWeather{
+                    realm.delete(value)
+                }
+                for(value) in weatherData.dailyWeather{
+                    realm.delete(value)
+                }
             }
         }
         try! realm.write{
             let newWeatherData = WeatherData()
-            newWeatherData.currentWeather = currentWeather
-            newWeatherData.hourlyWeather = hourlyWeather
-            newWeatherData.dailyWeather = dailyWeather
-            newWeatherData.currentCity = currentCity
+            newWeatherData.currentPlaceName = currentCity
             realm.add(newWeatherData)
+            realm.add(currentWeather)
+            for(value) in hourlyWeather{
+                realm.add(value)
+            }
+            for(value) in dailyWeather{
+                realm.add(value)
+            }
         }
     }
 }
