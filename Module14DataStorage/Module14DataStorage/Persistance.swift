@@ -1,38 +1,24 @@
 //
 //  Persistance.swift
-//  Module14DataStorage
+//  Module14dataStorage
 //
-//  Created by Vladimir Mustafin on 07.05.2021.
+//  Created by Vladimir Mustafin on 22.05.2021.
 //
 
-import UIKit
-import RealmSwift
+import Foundation
 
-class Data: Object{
-    @objc dynamic var str: String = ""
-}
-
-
-class Persistance {
+class Persistance{
     static let shared = Persistance()
     
-    private let realm = try! Realm()
-    
-    func getData() -> Data?{
-        let data = realm.objects(Data.self).first ?? nil
-        return data
+    private let kUserNameKey = "Persistance.kUserNameKey"
+    var name:String? {
+        set { UserDefaults.standard.set(newValue,forKey: kUserNameKey)}
+        get { return UserDefaults.standard.string(forKey: kUserNameKey)}
     }
     
-    func updateData(string: String){
-//        if let Data = self.getData(){
-//            try! realm.write{
-//                realm.delete(Data)
-//            }
-//        }
-        try! realm.write{
-            let newData = Data()
-            newData.str = string
-            realm.add(newData)
-        }
+    private let kUserSurnameKey = "Persistance.kUserSurnameKey"
+    var surname: String? {
+        set { UserDefaults.standard.set(newValue,forKey: kUserSurnameKey)}
+        get { return UserDefaults.standard.string(forKey: kUserSurnameKey)}
     }
 }

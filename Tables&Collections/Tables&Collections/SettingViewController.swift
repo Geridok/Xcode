@@ -24,19 +24,6 @@ struct SettingsSection {
 }
 
 class SettingParagraphFabric{
-    static func getAllSettingParagraph() -> [SettingParagraph]{
-        return [
-            SettingParagraph(settingsNames: ["General", "Accessibility","Privacy"],
-                             //MARK: Here u can add image set for current paragraph of settings
-                             settingsImages: ["setting.png"].map{UIImage(imageLiteralResourceName: $0)}),
-            SettingParagraph(settingsNames: ["Passwords & Accounts"],
-                             //MARK: Here u can add image set for current paragraph of settings
-                             settingsImages: ["setting.png"].map{UIImage(imageLiteralResourceName: $0)}),
-            SettingParagraph(settingsNames: ["Maps","Safari","News","Heart","General", "Accessibility","Privacy","Passwords & Accounts","Maps","Safari","News","Heart","General", "Accessibility","Privacy","Passwords & Accounts","Maps","Safari","News","Heart"],
-                             //MARK: Here u can add image set for current paragraph of settings
-                             settingsImages: ["setting.png"].map{UIImage(imageLiteralResourceName: $0)})
-        ]
-    }
     static func getSettingSection()-> [SettingsSection]{
         return[
             SettingsSection(title: "General", settings: [

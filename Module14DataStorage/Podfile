@@ -1,8 +1,0 @@
-platform :ios, '10.0'
-use_frameworks!
-
-target 'Module14DataStorage' do
-
-pod 'RealmSwift'
-
-end

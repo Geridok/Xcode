@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="FieldView" customModule="Module14dataStorage" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="400" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yHl-yT-Ifh">
+                    <rect key="frame" x="15" y="87.5" width="370" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="lCP-uY-Dy0"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="setName:" destination="iN0-l3-epB" eventType="editingDidEnd" id="j93-tw-4jk"/>
+                    </connections>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter surname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4VT-dI-W8D">
+                    <rect key="frame" x="15" y="162.5" width="370" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="AHR-0J-yOV"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="setSurname:" destination="iN0-l3-epB" eventType="editingDidEnd" id="fEX-YE-WhF"/>
+                    </connections>
+                </textField>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <constraints>
+                <constraint firstItem="yHl-yT-Ifh" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-37.5" id="4cI-Wg-6kn"/>
+                <constraint firstItem="4VT-dI-W8D" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="LUb-fp-iTf"/>
+                <constraint firstItem="yHl-yT-Ifh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="U81-5q-2hb"/>
+                <constraint firstItem="4VT-dI-W8D" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="37.5" id="XT5-8H-Efn"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="4VT-dI-W8D" secondAttribute="trailing" constant="15" id="bmz-YC-d0a"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yHl-yT-Ifh" secondAttribute="trailing" constant="15" id="cF0-Q9-gva"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="nameTextField" destination="yHl-yT-Ifh" id="GdT-uB-Skk"/>
+                <outlet property="surNameTextField" destination="4VT-dI-W8D" id="DEU-bv-YbC"/>
+            </connections>
+            <point key="canvasLocation" x="73.913043478260875" y="103.79464285714285"/>
+        </view>
+    </objects>
+</document>
