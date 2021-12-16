@@ -9,5 +9,6 @@ pod 'Alamofire', '~> 5.2'
 pod 'SVProgressHUD'
 pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
 pod 'SwiftyJSON', '~> 4.0'
+pod 'RealmSwift', '~>10'
 
 end

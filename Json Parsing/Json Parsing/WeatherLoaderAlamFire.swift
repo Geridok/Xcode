@@ -36,7 +36,8 @@ class WeatherLoader{
         AF.request(curWeatherRequest).responseJSON{ response in
             if let obj = try? response.result.get(){
                 if let jsonDict = obj as? NSDictionary{
-                        self.currentWeather = CurrentWeather(data: jsonDict)
+                    let curWeather = CurrentWeather()
+                    self.currentWeather = curWeather.ini(data: jsonDict)
 
                 }
             }
@@ -53,7 +54,8 @@ class WeatherLoader{
                     let timeZoneOffset = jsonDict["timezone_offset"] as? Double
                     if let dailyArr = jsonDict["hourly"] as? NSArray {
                         for (data) in dailyArr where data is NSDictionary{
-                            if let readyHourlyInfo = HourlyWeather(data: data as! NSDictionary, timeZoneOffset: timeZoneOffset ?? 0){
+                            let horWeather = HourlyWeather()
+                            if let readyHourlyInfo = horWeather.ini(data: data as! NSDictionary, timeZoneOffset: timeZoneOffset ?? 0){
                                 self.hourlyWeather.append(readyHourlyInfo)
                             }
 
@@ -75,7 +77,8 @@ class WeatherLoader{
                     let timeZoneOffset = jsonDict["timezone_offset"] as? Double
                     if let dailyArr = jsonDict["daily"] as? NSArray {
                         for (data) in dailyArr where data is NSDictionary{
-                            if let readyDay = DayInfo(data: data as! NSDictionary, timeZoneOffset: timeZoneOffset ?? 0){
+                            let dayInfo = DayInfo()
+                            if let readyDay = dayInfo.ini(data: data as! NSDictionary, timeZoneOffset: timeZoneOffset ?? 0){
                                 self.dayInfo.append(readyDay)
                                 }
                             }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		671E1F03FC1AF0FF1D1EDD07 /* Pods_Json_Parsing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 669AF6DBD3E3EF8E6CD49C97 /* Pods_Json_Parsing.framework */; };
+		4622A77EB2FA9125B0E7FB03 /* Pods_Json_Parsing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 849BF589995F741C95FA82C1 /* Pods_Json_Parsing.framework */; };
 		E7A6272E2612E92D00D34BA5 /* StubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A6272D2612E92D00D34BA5 /* StubViewController.swift */; };
 		E7BA7B45260C4B0C00F6EE50 /* Places.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7BA7B44260C4B0C00F6EE50 /* Places.swift */; };
 		E7CC1E952609DA1500E4B43C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC1E942609DA1500E4B43C /* AppDelegate.swift */; };
@@ -17,7 +17,7 @@
 		E7CC1E9E2609DA1600E4B43C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E7CC1E9D2609DA1600E4B43C /* Assets.xcassets */; };
 		E7CC1EA12609DA1600E4B43C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E7CC1E9F2609DA1600E4B43C /* LaunchScreen.storyboard */; };
 		E7CC1EE1260A3A7E00E4B43C /* WeatherLoaderAlamFire.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7CC1EE0260A3A7E00E4B43C /* WeatherLoaderAlamFire.swift */; };
-		E7D1976226135B9A00E03837 /* WeatherLoaderStandart.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7D1976126135B9A00E03837 /* WeatherLoaderStandart.swift */; };
+		E7DCB134262DCF88008F8749 /* Persistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DCB133262DCF88008F8749 /* Persistance.swift */; };
 		E7DEA751260C5ECC005663C9 /* city.list.json in Resources */ = {isa = PBXBuildFile; fileRef = E7DEA750260C5ECC005663C9 /* city.list.json */; };
 		E7DEA759260C703B005663C9 /* Requests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEA758260C703B005663C9 /* Requests.swift */; };
 		E7DEA772260E5152005663C9 /* CollectiveTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7DEA770260E5152005663C9 /* CollectiveTableViewCell.swift */; };
@@ -46,9 +46,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		669AF6DBD3E3EF8E6CD49C97 /* Pods_Json_Parsing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Json_Parsing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9CBF8F41DC792F00E5A04F11 /* Pods-Json Parsing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Json Parsing.release.xcconfig"; path = "Target Support Files/Pods-Json Parsing/Pods-Json Parsing.release.xcconfig"; sourceTree = "<group>"; };
-		AF09F350D26CE0F81082831A /* Pods-Json Parsing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Json Parsing.debug.xcconfig"; path = "Target Support Files/Pods-Json Parsing/Pods-Json Parsing.debug.xcconfig"; sourceTree = "<group>"; };
+		849BF589995F741C95FA82C1 /* Pods_Json_Parsing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Json_Parsing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		88EEE11CD9FD4BF9BC9DE2A8 /* Pods-Json Parsing.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Json Parsing.debug.xcconfig"; path = "Target Support Files/Pods-Json Parsing/Pods-Json Parsing.debug.xcconfig"; sourceTree = "<group>"; };
+		90A8EA92B250C42E8525CA62 /* Pods-Json Parsing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Json Parsing.release.xcconfig"; path = "Target Support Files/Pods-Json Parsing/Pods-Json Parsing.release.xcconfig"; sourceTree = "<group>"; };
 		E7A6272D2612E92D00D34BA5 /* StubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubViewController.swift; sourceTree = "<group>"; };
 		E7BA7B44260C4B0C00F6EE50 /* Places.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Places.swift; sourceTree = "<group>"; };
 		E7CC1E912609DA1500E4B43C /* Json Parsing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Json Parsing.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,7 +62,7 @@
 		E7CC1EA72609DA1700E4B43C /* Json ParsingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Json ParsingTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7CC1EB22609DA1700E4B43C /* Json ParsingUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Json ParsingUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E7CC1EE0260A3A7E00E4B43C /* WeatherLoaderAlamFire.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLoaderAlamFire.swift; sourceTree = "<group>"; };
-		E7D1976126135B9A00E03837 /* WeatherLoaderStandart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLoaderStandart.swift; sourceTree = "<group>"; };
+		E7DCB133262DCF88008F8749 /* Persistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistance.swift; sourceTree = "<group>"; };
 		E7DEA750260C5ECC005663C9 /* city.list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = city.list.json; sourceTree = "<group>"; };
 		E7DEA758260C703B005663C9 /* Requests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Requests.swift; sourceTree = "<group>"; };
 		E7DEA770260E5152005663C9 /* CollectiveTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectiveTableViewCell.swift; sourceTree = "<group>"; };
@@ -78,7 +78,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				671E1F03FC1AF0FF1D1EDD07 /* Pods_Json_Parsing.framework in Frameworks */,
+				4622A77EB2FA9125B0E7FB03 /* Pods_Json_Parsing.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,21 +99,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0372E0724B3FB0985494BC94 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				669AF6DBD3E3EF8E6CD49C97 /* Pods_Json_Parsing.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		86A25EAEBFE2C93E76AC5F3F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AF09F350D26CE0F81082831A /* Pods-Json Parsing.debug.xcconfig */,
-				9CBF8F41DC792F00E5A04F11 /* Pods-Json Parsing.release.xcconfig */,
+				88EEE11CD9FD4BF9BC9DE2A8 /* Pods-Json Parsing.debug.xcconfig */,
+				90A8EA92B250C42E8525CA62 /* Pods-Json Parsing.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		992A74312AF32D4926063E65 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				849BF589995F741C95FA82C1 /* Pods_Json_Parsing.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E7BA7B43260C499600F6EE50 /* Controllers */ = {
@@ -131,7 +131,7 @@
 				E7CC1E932609DA1500E4B43C /* Json Parsing */,
 				E7CC1E922609DA1500E4B43C /* Products */,
 				86A25EAEBFE2C93E76AC5F3F /* Pods */,
-				0372E0724B3FB0985494BC94 /* Frameworks */,
+				992A74312AF32D4926063E65 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -179,9 +179,9 @@
 			isa = PBXGroup;
 			children = (
 				E7CC1EE0260A3A7E00E4B43C /* WeatherLoaderAlamFire.swift */,
-				E7D1976126135B9A00E03837 /* WeatherLoaderStandart.swift */,
 				E7BA7B44260C4B0C00F6EE50 /* Places.swift */,
 				E7DEA758260C703B005663C9 /* Requests.swift */,
+				E7DCB133262DCF88008F8749 /* Persistance.swift */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -193,11 +193,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E7CC1EBB2609DA1700E4B43C /* Build configuration list for PBXNativeTarget "Json Parsing" */;
 			buildPhases = (
-				EF4D9363F3436F843A3B5EE4 /* [CP] Check Pods Manifest.lock */,
+				E892710CC21AA9F3AAF6C1B0 /* [CP] Check Pods Manifest.lock */,
 				E7CC1E8D2609DA1500E4B43C /* Sources */,
 				E7CC1E8E2609DA1500E4B43C /* Frameworks */,
 				E7CC1E8F2609DA1500E4B43C /* Resources */,
-				2F78A8917B77BD287D50D99B /* [CP] Embed Pods Frameworks */,
+				EC2E8EC1648DACEB21245573 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -317,24 +317,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2F78A8917B77BD287D50D99B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Json Parsing/Pods-Json Parsing-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Json Parsing/Pods-Json Parsing-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Json Parsing/Pods-Json Parsing-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EF4D9363F3436F843A3B5EE4 /* [CP] Check Pods Manifest.lock */ = {
+		E892710CC21AA9F3AAF6C1B0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -356,6 +339,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EC2E8EC1648DACEB21245573 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Json Parsing/Pods-Json Parsing-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Json Parsing/Pods-Json Parsing-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Json Parsing/Pods-Json Parsing-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -364,6 +364,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7A6272E2612E92D00D34BA5 /* StubViewController.swift in Sources */,
+				E7DCB134262DCF88008F8749 /* Persistance.swift in Sources */,
 				E7CC1EE1260A3A7E00E4B43C /* WeatherLoaderAlamFire.swift in Sources */,
 				E7DEA779260E545D005663C9 /* DailyTableViewCell.swift in Sources */,
 				E7DEA794260EF4F3005663C9 /* CollectiveViewCell.swift in Sources */,
@@ -374,7 +375,6 @@
 				E7BA7B45260C4B0C00F6EE50 /* Places.swift in Sources */,
 				E7DEA789260EE88E005663C9 /* currentWeatherInfoView.swift in Sources */,
 				E7CC1E972609DA1500E4B43C /* SceneDelegate.swift in Sources */,
-				E7D1976226135B9A00E03837 /* WeatherLoaderStandart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,7 +545,7 @@
 		};
 		E7CC1EBC2609DA1700E4B43C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF09F350D26CE0F81082831A /* Pods-Json Parsing.debug.xcconfig */;
+			baseConfigurationReference = 88EEE11CD9FD4BF9BC9DE2A8 /* Pods-Json Parsing.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -565,7 +565,7 @@
 		};
 		E7CC1EBD2609DA1700E4B43C /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9CBF8F41DC792F00E5A04F11 /* Pods-Json Parsing.release.xcconfig */;
+			baseConfigurationReference = 90A8EA92B250C42E8525CA62 /* Pods-Json Parsing.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

@@ -7,70 +7,78 @@
 
 import UIKit
 import SVProgressHUD
+import RealmSwift
+
 class StubViewController: UIViewController {
 
     var weatherLoaderAlamFire: WeatherLoader?
-    var weatherLoaderStandart: WeatherLoaderStandart?
     
     var isHourlyWeatherLoaded = false
     var isDailyWheatherLoaded = false
     var isCurrentWeatherLoaded = false
+    private let realm = try! Realm()
     
-    var currentPlaceName = "Moscow"
     
-    // false - alamFire, true - standart method
-    var parseType = false
+    let dataStorage = Persistance.shared
+    
+    var currentPlaceName:String? = nil
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        SVProgressHUD.show()
-    }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        if(parseType){
-            weatherLoaderStandart = WeatherLoaderStandart()
-            weatherLoaderStandart?.delegat = self
-            weatherLoaderStandart?.UpdateDataForPlace(place: currentPlaceName)
+        if let data = dataStorage.getData(){
+            if (currentPlaceName == nil){
+                segue(data: data)
+            }
+            if(data.currentPlaceName != currentPlaceName){
+                updateData()
+            }else{
+                segue(data: data)
+            }
+            
         }else{
-            weatherLoaderAlamFire = WeatherLoader()
-            weatherLoaderAlamFire?.delegat = self
-            weatherLoaderAlamFire?.updateDataForPlace(place: currentPlaceName)
+            updateData()
         }
     }
-
-    func segue(){
+    func segue(data: WeatherData? = nil){
         let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
         guard let destinationViewController = mainStoryBoard.instantiateViewController(identifier: "StandartWeatherViewController") as? WeatherViewController else{
             print("Can't load view controller")
             return
         }
         
-        isHourlyWeatherLoaded.toggle()
-        isDailyWheatherLoaded.toggle()
-        isCurrentWeatherLoaded.toggle()
+        isHourlyWeatherLoaded = false
+        isDailyWheatherLoaded = false
+        isCurrentWeatherLoaded = false
         
         destinationViewController.modalTransitionStyle = .crossDissolve
         destinationViewController.modalPresentationStyle = .fullScreen
         destinationViewController.stubDelegate = self
-        destinationViewController.currentPlaceName = currentPlaceName
-        if(parseType){
-            destinationViewController.currentWeather = weatherLoaderStandart!.currentWeather
-            destinationViewController.hourlyWeather = weatherLoaderStandart!.hourlyWeather
-            destinationViewController.dayInfo = weatherLoaderStandart!.dayInfo
-        } else{
+        
+        if let weatherData = data {
+            destinationViewController.currentWeather = weatherData.currentWeather
+            destinationViewController.hourlyWeather = weatherData.hourlyWeather
+            destinationViewController.dayInfo = weatherData.dailyWeather
+            currentPlaceName = weatherData.currentPlaceName
+        }else{
             destinationViewController.currentWeather = weatherLoaderAlamFire!.currentWeather
             destinationViewController.hourlyWeather = weatherLoaderAlamFire!.hourlyWeather
             destinationViewController.dayInfo = weatherLoaderAlamFire!.dayInfo
-            
+            dataStorage.updateData(currentWeather: weatherLoaderAlamFire!.currentWeather, hourlyWeather: weatherLoaderAlamFire!.hourlyWeather, dailyWeather: weatherLoaderAlamFire!.dayInfo, currentCity: currentPlaceName ?? "Moscow")
         }
+        destinationViewController.currentPlaceName = currentPlaceName
         SVProgressHUD.dismiss()
         present(destinationViewController, animated: true, completion: nil)
+        
+    }
+    private func updateData(){
+        SVProgressHUD.show()
+        weatherLoaderAlamFire = WeatherLoader()
+        weatherLoaderAlamFire?.delegat = self
+        weatherLoaderAlamFire?.updateDataForPlace(place: currentPlaceName ?? "Moscow")
     }
 }
 
@@ -102,9 +110,7 @@ extension StubViewController: WeatherLoaderDelegate{
 
 
 extension StubViewController: StubDelegate{
-    func changeParseType() {
-        parseType.toggle()
-    }
+    
     
     func changePlaceName(place: String) {
         currentPlaceName = place

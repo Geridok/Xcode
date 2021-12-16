@@ -1,11 +1,17 @@
 PODS:
   - Alamofire (5.4.1)
+  - Realm (10.7.2):
+    - Realm/Headers (= 10.7.2)
+  - Realm/Headers (10.7.2)
+  - RealmSwift (10.7.2):
+    - Realm (= 10.7.2)
   - Spring (1.0.6)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (4.3.0)
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
+  - RealmSwift (~> 10)
   - Spring (from `https://github.com/MengTo/Spring.git`)
   - SVProgressHUD
   - SwiftyJSON (~> 4.0)
@@ -13,6 +19,8 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
+    - Realm
+    - RealmSwift
     - SVProgressHUD
     - SwiftyJSON
 
@@ -27,10 +35,12 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
+  Realm: e523da9ade306c5ae87e85dc09fdef148d3e1cc1
+  RealmSwift: 4f6758c3adbdcc87f7b7777107226532a077f61c
   Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 0a9314444f614bf0634663d6b88f0f693125b23e
+PODFILE CHECKSUM: 89b6d1fc2dcac0cad1a10ea4f65f7cb91626ab72
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2

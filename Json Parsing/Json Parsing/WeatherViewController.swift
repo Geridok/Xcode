@@ -11,7 +11,6 @@ import Spring
 
 protocol StubDelegate {
     func changePlaceName(place: String)
-    func changeParseType()
 }
 
 class WeatherViewController: UIViewController {
@@ -21,6 +20,7 @@ class WeatherViewController: UIViewController {
         let view = CurrentWeatherInfoView.loadFromXib()
         return view
     }()
+
     var currentWeather: CurrentWeather!
     
     var hourlyWeather: [HourlyWeather] = []
@@ -111,10 +111,8 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource{
 }
 
 extension WeatherViewController: CurrentWeatherInfoDelegate{
-    func changeParseType() {
-        stubDelegate?.changeParseType()
+    func refreshData() {
         
-        dismiss(animated: true, completion: nil)
     }
     
     func setNewCity(newCity: String) {
