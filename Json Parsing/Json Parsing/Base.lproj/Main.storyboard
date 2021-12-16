@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3rw-40-DvB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3rw-40-DvB">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,7 +31,6 @@
         <!--Standart-->
         <scene sceneID="hFJ-cb-VIW">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xNb-za-zf1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="StandartWeatherViewController" id="ebL-C1-hIP" customClass="WeatherViewController" customModule="Json_Parsing" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZD0-k7-Rg8">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
@@ -41,6 +41,7 @@
                     <tabBarItem key="tabBarItem" title="Standart" image="Standart" id="NRM-wA-bER"/>
                     <navigationItem key="navigationItem" id="wbb-x9-UIm"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xNb-za-zf1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-34" y="-45"/>
         </scene>

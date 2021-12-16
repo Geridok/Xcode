@@ -20,6 +20,7 @@ class WeatherViewController: UIViewController {
         let view = CurrentWeatherInfoView.loadFromXib()
         return view
     }()
+
     var currentWeather: CurrentWeather!
     
     var hourlyWeather: [HourlyWeather] = []

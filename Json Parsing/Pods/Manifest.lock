@@ -11,7 +11,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.2)
-  - RealmSwift
+  - RealmSwift (~> 10)
   - Spring (from `https://github.com/MengTo/Spring.git`)
   - SVProgressHUD
   - SwiftyJSON (~> 4.0)
@@ -41,6 +41,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
 
-PODFILE CHECKSUM: 3540aaa99cc6d9a9665ba132d9db7c90920c2bf0
+PODFILE CHECKSUM: 89b6d1fc2dcac0cad1a10ea4f65f7cb91626ab72
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2
